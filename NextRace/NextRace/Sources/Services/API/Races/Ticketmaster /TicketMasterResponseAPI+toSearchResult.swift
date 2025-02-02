@@ -33,7 +33,7 @@ extension TicketMasterAPIResponse {
     }
 }
 
-public extension DateFormatter {
+private extension DateFormatter {
     static let ticketMasterAPIDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

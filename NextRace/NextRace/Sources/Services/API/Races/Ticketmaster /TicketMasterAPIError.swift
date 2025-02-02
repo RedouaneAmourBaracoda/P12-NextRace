@@ -13,7 +13,7 @@ protocol RaceAPIError: LocalizedError, CaseIterable {
     var userFriendlyDescription: String { get }
 }
 
-enum TicketMasterAPIResponseAPIError: RaceAPIError {
+enum TicketMasterAPIError: RaceAPIError {
     case invalidURL
     case badRequest
     case unauthorized
@@ -52,7 +52,7 @@ enum TicketMasterAPIResponseAPIError: RaceAPIError {
         }
     }
 
-    static func checkStatusCode(urlResponse: URLResponse) -> Result<Void, TicketMasterAPIResponseAPIError> {
+    static func checkStatusCode(urlResponse: URLResponse) -> Result<Void, TicketMasterAPIError> {
         guard let httpURLResponse = urlResponse as? HTTPURLResponse else { return .failure(.invalidRequest) }
 
         let statusCode = httpURLResponse.statusCode

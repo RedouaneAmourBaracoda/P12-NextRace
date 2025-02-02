@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SearchResult {
+struct SearchResult: Equatable {
     let page: Page
     let races: [Race]
 }
 
-struct Race: Codable {
+struct Race: Equatable {
     let id: String
     let name: String
     let date: Date?
@@ -21,7 +21,7 @@ struct Race: Codable {
     let price: PriceRanges?
     let venue: Venue
 
-    struct Venue: Codable {
+    struct Venue: Equatable {
         let name: String
         let postalCode: String
         let city: String
@@ -31,8 +31,8 @@ struct Race: Codable {
     }
 }
 
-extension Race: Equatable {
-    static func == (lhs: Race, rhs: Race) -> Bool {
-        lhs.id == rhs.id
+extension Race: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
