@@ -15,6 +15,9 @@ struct SearchView: View {
         NavigationStack {
             contentView()
                 .customNavigationBar(navigationTitle: Localizable.navigationTitle)
+                .alert(isPresented: $viewModel.shouldPresentAlert) {
+                    Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
+                }
                 .background { CustomColors.backgroundColor.ignoresSafeArea() }
         }
     }
@@ -23,10 +26,9 @@ struct SearchView: View {
         VStack {
             carSelectionView()
             Spacer()
-            countrySelectionView()
-            Spacer()
             searchActionView()
         }
+        .onAppear { viewModel.resetState() }
         .padding(.top)
         .padding(.bottom, 0.5)
     }
@@ -44,31 +46,8 @@ struct SearchView: View {
                     .frame(width: 30)
             }
 
-            Picker(Localizable.carSelectionTitle, selection: $viewModel.selectedCar) {
+            Picker(Localizable.carSelectionTitle, selection: $viewModel.selectedChampionship) {
                 ForEach(Championship.allCases) {
-                    Text($0.rawValue.uppercased())
-                }
-            }
-            .pickerStyle(.segmented)
-        }
-        .padding()
-    }
-
-    private func countrySelectionView() -> some View {
-        VStack {
-            HStack {
-                Text(Localizable.countrySelectionTitle)
-                    .font(.custom(CustomFonts.body, size: 25.0))
-                    .foregroundStyle(.white)
-                Spacer()
-                Image(systemName: "globe")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-            }
-
-            Picker(Localizable.countrySelectionTitle, selection: $viewModel.selectedCountry) {
-                ForEach(Country.allCases) {
                     Text($0.rawValue.uppercased())
                 }
             }
@@ -87,7 +66,7 @@ struct SearchView: View {
             }
             Button {
                 Task {
-
+                    await viewModel.getRaces()
                 }
             } label: {
                 Text(Localizable.searchButtonTitle)
@@ -122,6 +101,11 @@ extension Localizable {
 
     static let searchButtonTitle = NSLocalizedString(
         "search.button.title",
+        comment: ""
+    )
+
+    static let errorAlertTitle = NSLocalizedString(
+        "search.alert.error.title",
         comment: ""
     )
 }

@@ -1,18 +1,210 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "search.button.title" : {
+    "races.errors.undetermined.description" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Search races"
+            "value" : "An expected error occurred and couldn't be determined."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prochaines courses"
+            "value" : "Erreur inattendue survenue lors de la recherche."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.bad-request.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing parameters in the request or some have incorrect format or values out of allowed range."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des paramètres sont manquants dans la requête ou certains ont un format incorrect ou des valeurs hors de la plage autorisée."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.bad-request.user-friendly-description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An expected error occurred and couldn't be determined. Please try again later."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur inattendue est survenue. Veuillez réessayer ultérieurement."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.internal-error.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unexpected Error due to internal issues."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur inattendue due à des problèmes internes."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.invalid-request.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid request"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requête invalide."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.invalid-request.user-friendly-description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was an issue with race searching services. Access might be restricted or services are simply down."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les services de courses rencontrent actuellement un soucis indéterminé. L'accès a pu être restreint ou les services sont momentanément interrompus."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.invalid-url.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid URL"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL invalide."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.not-found.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data with requested parameters does not exist in service database"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les données avec les paramètres demandés n’existent pas dans la base de données."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.too-many-requests.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota of requests was exceeded. Retry request later or after extending your key quota."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La limite de demandes a été dépassé. Essayez de nouveau plus tard ou après avoir étendu votre quota de clés."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.too-many-requests.user-friendly-description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The limit of requests to recipes services has been exceeded."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La limite de recettes a été dépassée."
+          }
+        }
+      }
+    },
+    "races.ticketMaster-api.errors.unauthorized.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API token not providen in the request or if provided does not grant access to this API."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Token API non fourni dans la requête ou alors ne donne pas accès à cette API."
+          }
+        }
+      }
+    },
+    "search.alert.error.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
+          }
+        }
+      }
+    },
+    "search.button.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NEXT RACES"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PROCHAINES COURSES"
           }
         }
       }
@@ -22,13 +214,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Championship"
+            "value" : "CHAMPIONSHIP"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Championat"
+            "value" : "CHAMPIONNAT"
           }
         }
       }
@@ -38,13 +230,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Country"
+            "value" : "COUNTRY"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pays"
+            "value" : "PAYS"
           }
         }
       }
@@ -54,13 +246,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NextRace"
+            "value" : "NEXTRACE"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NextRace"
+            "value" : "NEXTRACE"
           }
         }
       }
@@ -70,13 +262,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Search"
+            "value" : "SEARCH"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche"
+            "value" : "RECHERCHE"
           }
         }
       }

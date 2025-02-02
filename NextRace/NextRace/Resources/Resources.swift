@@ -16,4 +16,8 @@ enum CustomColors {
 }
 
 enum Localizable {
+    static let undeterminedErrorDescription = NSLocalizedString(
+        "races.errors.undetermined.description",
+        comment: ""
+    )
 }

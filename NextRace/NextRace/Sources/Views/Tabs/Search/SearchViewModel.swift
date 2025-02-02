@@ -12,43 +12,62 @@ final class SearchViewModel: ObservableObject {
 
     // MARK: - Properties
 
-    @Published var selectedCar: Championship = .nascar
+    @Published var races: SearchResult?
 
-    @Published var selectedCountry: Country = .usa
+    @Published var selectedChampionship: Championship = .nascar
 
     @Published var searchInProgress = false
 
     @Published var showRaces = false
+
+    @Published var shouldPresentAlert = false
+
+    var errorMessage: String = ""
+
+    // MARK: - Services
+
+    private let raceAPIService: RaceAPIService
+
+    // MARK: - Initialization
+
+    init(raceAPIService: RaceAPIService = TicketMasterAPIService()) {
+        self.raceAPIService = raceAPIService
+    }
+
+    // MARK: - Methods
+
+    func getRaces() async {
+
+        searchInProgress = true
+
+        do {
+            races = try await raceAPIService.fetchRaces(for: selectedChampionship)
+            searchInProgress = false
+            showRaces = true
+        } catch {
+            if let raceAPIError = error as? (any RaceAPIError) {
+                NSLog(raceAPIError.errorDescription ?? Localizable.undeterminedErrorDescription)
+                errorMessage = raceAPIError.userFriendlyDescription
+            } else {
+                errorMessage = Localizable.undeterminedErrorDescription
+            }
+            shouldPresentAlert = true
+            resetState()
+        }
+    }
+
+    func resetState() {
+        searchInProgress = false
+        showRaces = false
+        races = nil
+    }
 }
 
 enum Championship: String, CaseIterable, Identifiable {
     case nascar
     case formula
-    case wec
-    case rally
 
     var id: Self {
         return self
-    }
-}
-
-enum Country: String, CaseIterable, Identifiable {
-    case usa
-    case australia
-    case uk
-
-    var id: Self {
-        return self
-    }
-
-    var code: String {
-        switch self {
-        case .usa:
-            "us"
-        case .australia:
-            "aus"
-        case .uk:
-            "uk"
-        }
     }
 }
