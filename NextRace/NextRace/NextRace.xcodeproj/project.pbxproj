@@ -23,6 +23,8 @@
 		B8AE75B42D4F207500EEF1D8 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75B32D4F207500EEF1D8 /* SearchResult.swift */; };
 		B8AE75BC2D4F8AC100EEF1D8 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */; };
 		B8AE75BE2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */; };
+		B8AE75C02D4FE9E500EEF1D8 /* MockRecipeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */; };
+		B8AE75C22D4FEA6D00EEF1D8 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		B8AE75B32D4F207500EEF1D8 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterAPIServiceTests.swift; sourceTree = "<group>"; };
+		B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipeAPIService.swift; sourceTree = "<group>"; };
+		B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 			children = (
 				B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */,
 				B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */,
+				B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */,
+				B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */,
 			);
 			path = SearchTests;
 			sourceTree = "<group>";
@@ -351,6 +357,8 @@
 			files = (
 				B8AE75BE2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift in Sources */,
 				B8AE75BC2D4F8AC100EEF1D8 /* MockURLProtocol.swift in Sources */,
+				B8AE75C22D4FEA6D00EEF1D8 /* SearchViewModelTests.swift in Sources */,
+				B8AE75C02D4FE9E500EEF1D8 /* MockRecipeAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,21 +12,22 @@ extension TicketMasterAPIResponse {
         .init(
             page: page,
             races: _embedded.events.map({ event in
-                Race(
+                let venue = event._embedded.venues[0]
+                return Race(
                     id: event.id,
                     name: event.name,
-                    date: DateFormatter.ticketMasterAPIDateFormatter.date(from: event.dates.start.localDate),
-                    imageURL: event.images.first?.url, 
-                    seatmapURL: event.seatmap?.staticUrl,
-                    price: event.priceRanges?.first,
+                    imageURL: event.images[0].url,
                     venue: .init(
-                        name: event._embedded.venues.first?.name ?? "",
-                        postalCode: event._embedded.venues.first?.postalCode ?? "",
-                        city: event._embedded.venues.first?.city.name ?? "" ,
-                        state: event._embedded.venues.first?.state.name ?? "",
-                        country: event._embedded.venues.first?.country.name ?? "",
-                        address: event._embedded.venues.first?.address.line1 ?? ""
-                    )
+                        name: venue.name,
+                        postalCode: venue.postalCode,
+                        city: venue.city.name,
+                        state: venue.state.name,
+                        country: venue.country.name,
+                        address: venue.address.line1
+                    ),
+                    date: DateFormatter.ticketMasterAPIDateFormatter.date(from: event.dates.start.localDate),
+                    seatmapURL: event.seatmap?.staticUrl,
+                    price: event.priceRanges?.first
                 )
             })
         )

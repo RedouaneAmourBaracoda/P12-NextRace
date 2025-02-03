@@ -12,7 +12,7 @@ final class SearchViewModel: ObservableObject {
 
     // MARK: - Properties
 
-    @Published var races: SearchResult?
+    @Published var searchResult: SearchResult?
 
     @Published var selectedChampionship: Championship = .nascar
 
@@ -41,7 +41,7 @@ final class SearchViewModel: ObservableObject {
         searchInProgress = true
 
         do {
-            races = try await raceAPIService.fetchRaces(for: selectedChampionship.rawValue)
+            searchResult = try await raceAPIService.fetchRaces(for: selectedChampionship.rawValue)
             searchInProgress = false
             showRaces = true
         } catch {
@@ -59,7 +59,7 @@ final class SearchViewModel: ObservableObject {
     func resetState() {
         searchInProgress = false
         showRaces = false
-        races = nil
+        searchResult = nil
     }
 }
 
@@ -69,9 +69,5 @@ enum Championship: String, CaseIterable, Identifiable {
 
     var id: Self {
         return self
-    }
-
-    static func random() -> Championship {
-        .allCases.randomElement() ?? .formula
     }
 }

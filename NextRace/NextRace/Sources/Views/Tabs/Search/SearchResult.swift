@@ -15,11 +15,11 @@ struct SearchResult: Equatable {
 struct Race: Equatable {
     let id: String
     let name: String
+    let imageURL: String
+    let venue: Venue
     let date: Date?
-    let imageURL: String?
     let seatmapURL: String?
     let price: PriceRanges?
-    let venue: Venue
 
     struct Venue: Equatable {
         let name: String
@@ -28,11 +28,5 @@ struct Race: Equatable {
         let state: String
         let country: String
         let address: String
-    }
-}
-
-extension Race: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
     }
 }
