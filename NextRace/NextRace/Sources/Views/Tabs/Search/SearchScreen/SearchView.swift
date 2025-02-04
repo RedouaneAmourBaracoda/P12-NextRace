@@ -28,7 +28,7 @@ struct SearchView: View {
             Spacer()
             searchActionView()
                 .navigationDestination(isPresented: $viewModel.showRaces) {
-                    ResultListView(viewModel: .init(races: viewModel.searchResult?.races ?? []))
+                    RaceListView(viewModel: .init(races: viewModel.searchResult?.races ?? []))
                 }
         }
         .onAppear { viewModel.resetState() }
@@ -86,7 +86,7 @@ struct SearchView: View {
     }
 }
 
-extension Localizable {
+private extension Localizable {
     static let carSelectionTitle = NSLocalizedString(
         "search.cars.title",
         comment: ""

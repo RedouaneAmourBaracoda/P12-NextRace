@@ -151,8 +151,8 @@ final class TicketMasterAPIServiceTests: XCTestCase {
                             priceRanges: [
                                 .init(
                                     currency: "USD",
-                                    min: 39.0,
-                                    max: 59.0
+                                    min: 39,
+                                    max: 59
                                 )
                             ],
                             seatmap: .init(

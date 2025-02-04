@@ -9,11 +9,12 @@ import SwiftUI
 
 struct RaceItemView: View {
     let item: Race
+
     var body: some View {
         HStack {
-            dateView()
+            date()
             divider()
-            titleView()
+            title()
             Spacer()
             chevron()
         }
@@ -26,7 +27,7 @@ struct RaceItemView: View {
     }
 
     @ViewBuilder
-    private func dateView() -> some View {
+    private func date() -> some View {
         if let date = item.date {
             VStack {
                 Text(date, format: .dateTime.day())
@@ -45,7 +46,7 @@ struct RaceItemView: View {
             .background { CustomColors.backgroundColor }
     }
 
-    private func titleView() -> some View {
+    private func title() -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(item.name)
                 .font(.custom(CustomFonts.body, size: 20.0))

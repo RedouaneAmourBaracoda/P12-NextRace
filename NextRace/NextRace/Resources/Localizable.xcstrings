@@ -17,6 +17,22 @@
         }
       }
     },
+    "race-detail.navigation-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Race"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Course"
+          }
+        }
+      }
+    },
     "races.errors.undetermined.description" : {
       "localizations" : {
         "en" : {

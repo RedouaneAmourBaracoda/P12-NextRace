@@ -1,5 +1,5 @@
 //
-//  ResultListView.swift
+//  RaceListView.swift
 //  NextRace
 //
 //  Created by Redouane on 03/02/2025.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ResultListView: View {
-    @ObservedObject private var viewModel: ResultListViewModel
+struct RaceListView: View {
+    @ObservedObject private var viewModel: RaceListViewModel
 
-    init(viewModel: ResultListViewModel) {
+    init(viewModel: RaceListViewModel) {
         self.viewModel = viewModel
     }
 
@@ -37,7 +37,7 @@ struct RacesListView: View {
                 VStack(spacing: 0) {
                     ForEach(races) { race in
                         NavigationLink {
-
+                            RaceItemDetailView(viewModel: .init(race: race))
                         } label: {
                             RaceItemView(item: race)
                         }
@@ -52,7 +52,7 @@ extension Array<Race> {
     static let forPreview: [Race] = [.nascarCupSeries, .nascarXfinitySeries]
 }
 
-extension Localizable {
+private extension Localizable {
     static let raceListNavigationTitle = NSLocalizedString(
         "search.result-list.screen-title",
         comment: ""
@@ -60,5 +60,5 @@ extension Localizable {
 }
 
 #Preview {
-    ResultListView(viewModel: .init(races: .forPreview))
+    RaceListView(viewModel: .init(races: .forPreview))
 }

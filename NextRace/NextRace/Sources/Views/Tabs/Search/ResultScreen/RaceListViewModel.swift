@@ -1,5 +1,5 @@
 //
-//  ResultListViewModel.swift
+//  RaceListViewModel.swift
 //  NextRace
 //
 //  Created by Redouane on 03/02/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ResultListViewModel: ObservableObject {
+final class RaceListViewModel: ObservableObject {
 
     // MARK: - Properties
 

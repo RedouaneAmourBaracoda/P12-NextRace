@@ -24,9 +24,12 @@
 		B8AE75BE2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */; };
 		B8AE75C02D4FE9E500EEF1D8 /* MockRecipeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */; };
 		B8AE75C22D4FEA6D00EEF1D8 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */; };
-		B8AE75C62D515E1500EEF1D8 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C52D515E1500EEF1D8 /* ResultListView.swift */; };
-		B8AE75C82D515E7900EEF1D8 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C72D515E7900EEF1D8 /* ResultListViewModel.swift */; };
+		B8AE75C62D515E1500EEF1D8 /* RaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C52D515E1500EEF1D8 /* RaceListView.swift */; };
+		B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C72D515E7900EEF1D8 /* RaceListViewModel.swift */; };
 		B8AE75CE2D5170D100EEF1D8 /* RaceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75CD2D5170D100EEF1D8 /* RaceItemView.swift */; };
+		B8AE75D02D51EA9B00EEF1D8 /* RaceItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75CF2D51EA9B00EEF1D8 /* RaceItemDetailView.swift */; };
+		B8AE75D22D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75D12D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift */; };
+		B8AE75D52D51EEED00EEF1D8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B8AE75D42D51EEED00EEF1D8 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +63,11 @@
 		B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterAPIServiceTests.swift; sourceTree = "<group>"; };
 		B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipeAPIService.swift; sourceTree = "<group>"; };
 		B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
-		B8AE75C52D515E1500EEF1D8 /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
-		B8AE75C72D515E7900EEF1D8 /* ResultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModel.swift; sourceTree = "<group>"; };
+		B8AE75C52D515E1500EEF1D8 /* RaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListView.swift; sourceTree = "<group>"; };
+		B8AE75C72D515E7900EEF1D8 /* RaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListViewModel.swift; sourceTree = "<group>"; };
 		B8AE75CD2D5170D100EEF1D8 /* RaceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemView.swift; sourceTree = "<group>"; };
+		B8AE75CF2D51EA9B00EEF1D8 /* RaceItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailView.swift; sourceTree = "<group>"; };
+		B8AE75D12D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AE75D52D51EEED00EEF1D8 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +255,11 @@
 		B8AE75C42D5158AE00EEF1D8 /* ResultScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B8AE75C52D515E1500EEF1D8 /* ResultListView.swift */,
-				B8AE75C72D515E7900EEF1D8 /* ResultListViewModel.swift */,
+				B8AE75C52D515E1500EEF1D8 /* RaceListView.swift */,
+				B8AE75C72D515E7900EEF1D8 /* RaceListViewModel.swift */,
 				B8AE75CD2D5170D100EEF1D8 /* RaceItemView.swift */,
+				B8AE75CF2D51EA9B00EEF1D8 /* RaceItemDetailView.swift */,
+				B8AE75D12D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift */,
 			);
 			path = ResultScreen;
 			sourceTree = "<group>";
@@ -272,6 +280,9 @@
 			dependencies = (
 			);
 			name = NextRace;
+			packageProductDependencies = (
+				B8AE75D42D51EEED00EEF1D8 /* Kingfisher */,
+			);
 			productName = NextRace;
 			productReference = B8AE75582D4C9D7900EEF1D8 /* NextRace.app */;
 			productType = "com.apple.product-type.application";
@@ -324,6 +335,9 @@
 				fr,
 			);
 			mainGroup = B8AE754F2D4C9D7900EEF1D8;
+			packageReferences = (
+				B8AE75D32D51EEED00EEF1D8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = B8AE75592D4C9D7900EEF1D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,13 +377,15 @@
 				B8AE75922D4CB75B00EEF1D8 /* Resources.swift in Sources */,
 				B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */,
 				B8AE758B2D4CB01D00EEF1D8 /* SearchView.swift in Sources */,
-				B8AE75C82D515E7900EEF1D8 /* ResultListViewModel.swift in Sources */,
+				B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */,
+				B8AE75D02D51EA9B00EEF1D8 /* RaceItemDetailView.swift in Sources */,
 				B8AE759A2D4CC2B600EEF1D8 /* SearchViewModel.swift in Sources */,
-				B8AE75C62D515E1500EEF1D8 /* ResultListView.swift in Sources */,
+				B8AE75C62D515E1500EEF1D8 /* RaceListView.swift in Sources */,
 				B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */,
 				B8AE75A62D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift in Sources */,
 				B8AE755C2D4C9D7900EEF1D8 /* NextRaceApp.swift in Sources */,
 				B8AE75A42D4DFBC700EEF1D8 /* TicketMasterAPI.swift in Sources */,
+				B8AE75D22D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift in Sources */,
 				B8AE75CE2D5170D100EEF1D8 /* RaceItemView.swift in Sources */,
 				B8AE759C2D4CC2E100EEF1D8 /* CustomNavigationBar.swift in Sources */,
 			);
@@ -648,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B8AE75D32D51EEED00EEF1D8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8AE75D42D51EEED00EEF1D8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8AE75D32D51EEED00EEF1D8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8AE75502D4C9D7900EEF1D8 /* Project object */;
 }
