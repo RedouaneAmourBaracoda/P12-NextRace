@@ -13,11 +13,17 @@ enum CustomFonts {
 
 enum CustomColors {
     static let backgroundColor = Color("Background-color", bundle: .main)
+    static let offWhite = Color("Off-white", bundle: .main)
 }
 
 enum Localizable {
     static let undeterminedErrorDescription = NSLocalizedString(
         "races.errors.undetermined.description",
+        comment: ""
+    )
+
+    static let backButtonTitle = NSLocalizedString(
+        "race-detail.back-button.title",
         comment: ""
     )
 }

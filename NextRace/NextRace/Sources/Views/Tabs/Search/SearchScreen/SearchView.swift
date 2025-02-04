@@ -27,6 +27,9 @@ struct SearchView: View {
             carSelectionView()
             Spacer()
             searchActionView()
+                .navigationDestination(isPresented: $viewModel.showRaces) {
+                    ResultListView(viewModel: .init(races: viewModel.searchResult?.races ?? []))
+                }
         }
         .onAppear { viewModel.resetState() }
         .padding(.top)

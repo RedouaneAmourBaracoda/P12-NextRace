@@ -20,11 +20,13 @@
 		B8AE75A62D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75A52D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift */; };
 		B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75A72D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift */; };
 		B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75A92D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift */; };
-		B8AE75B42D4F207500EEF1D8 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75B32D4F207500EEF1D8 /* SearchResult.swift */; };
 		B8AE75BC2D4F8AC100EEF1D8 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */; };
 		B8AE75BE2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */; };
 		B8AE75C02D4FE9E500EEF1D8 /* MockRecipeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */; };
 		B8AE75C22D4FEA6D00EEF1D8 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */; };
+		B8AE75C62D515E1500EEF1D8 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C52D515E1500EEF1D8 /* ResultListView.swift */; };
+		B8AE75C82D515E7900EEF1D8 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C72D515E7900EEF1D8 /* ResultListViewModel.swift */; };
+		B8AE75CE2D5170D100EEF1D8 /* RaceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75CD2D5170D100EEF1D8 /* RaceItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +56,13 @@
 		B8AE75A52D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterResponseAPI.swift; sourceTree = "<group>"; };
 		B8AE75A72D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketMasterResponseAPI+toSearchResult.swift"; sourceTree = "<group>"; };
 		B8AE75A92D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterAPIError.swift; sourceTree = "<group>"; };
-		B8AE75B32D4F207500EEF1D8 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterAPIServiceTests.swift; sourceTree = "<group>"; };
 		B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipeAPIService.swift; sourceTree = "<group>"; };
 		B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		B8AE75C52D515E1500EEF1D8 /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
+		B8AE75C72D515E7900EEF1D8 /* ResultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModel.swift; sourceTree = "<group>"; };
+		B8AE75CD2D5170D100EEF1D8 /* RaceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,10 +176,8 @@
 		B8AE758D2D4CB03600EEF1D8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				B8AE759B2D4CC2E100EEF1D8 /* CustomNavigationBar.swift */,
-				B8AE75B32D4F207500EEF1D8 /* SearchResult.swift */,
-				B8AE758A2D4CB01D00EEF1D8 /* SearchView.swift */,
-				B8AE75992D4CC2B600EEF1D8 /* SearchViewModel.swift */,
+				B8AE75C42D5158AE00EEF1D8 /* ResultScreen */,
+				B8AE75C32D51589B00EEF1D8 /* SearchScreen */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -232,6 +234,26 @@
 				B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */,
 			);
 			path = SearchTests;
+			sourceTree = "<group>";
+		};
+		B8AE75C32D51589B00EEF1D8 /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B8AE759B2D4CC2E100EEF1D8 /* CustomNavigationBar.swift */,
+				B8AE758A2D4CB01D00EEF1D8 /* SearchView.swift */,
+				B8AE75992D4CC2B600EEF1D8 /* SearchViewModel.swift */,
+			);
+			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		B8AE75C42D5158AE00EEF1D8 /* ResultScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B8AE75C52D515E1500EEF1D8 /* ResultListView.swift */,
+				B8AE75C72D515E7900EEF1D8 /* ResultListViewModel.swift */,
+				B8AE75CD2D5170D100EEF1D8 /* RaceItemView.swift */,
+			);
+			path = ResultScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,12 +363,14 @@
 				B8AE75922D4CB75B00EEF1D8 /* Resources.swift in Sources */,
 				B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */,
 				B8AE758B2D4CB01D00EEF1D8 /* SearchView.swift in Sources */,
+				B8AE75C82D515E7900EEF1D8 /* ResultListViewModel.swift in Sources */,
 				B8AE759A2D4CC2B600EEF1D8 /* SearchViewModel.swift in Sources */,
-				B8AE75B42D4F207500EEF1D8 /* SearchResult.swift in Sources */,
+				B8AE75C62D515E1500EEF1D8 /* ResultListView.swift in Sources */,
 				B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */,
 				B8AE75A62D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift in Sources */,
 				B8AE755C2D4C9D7900EEF1D8 /* NextRaceApp.swift in Sources */,
 				B8AE75A42D4DFBC700EEF1D8 /* TicketMasterAPI.swift in Sources */,
+				B8AE75CE2D5170D100EEF1D8 /* RaceItemView.swift in Sources */,
 				B8AE759C2D4CC2E100EEF1D8 /* CustomNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

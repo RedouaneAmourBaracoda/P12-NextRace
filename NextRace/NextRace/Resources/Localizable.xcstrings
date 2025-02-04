@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "race-detail.back-button.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        }
+      }
+    },
     "races.errors.undetermined.description" : {
       "localizations" : {
         "en" : {
@@ -150,13 +166,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The limit of requests to recipes services has been exceeded."
+            "value" : "The limit of requests to race services has been exceeded."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La limite de recettes a été dépassée."
+            "value" : "La limite de courses a été dépassée."
           }
         }
       }
@@ -253,6 +269,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NEXTRACE"
+          }
+        }
+      }
+    },
+    "search.result-list.screen-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RACES"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "COURSES"
           }
         }
       }
