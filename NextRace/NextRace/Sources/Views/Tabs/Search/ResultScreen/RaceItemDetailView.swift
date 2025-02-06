@@ -57,7 +57,6 @@ struct RaceItemDetailView: View {
             .padding(.bottom)
             raceway()
             seatmap()
-                .padding(.bottom)
             location()
         }
         .padding()
@@ -73,7 +72,7 @@ struct RaceItemDetailView: View {
     @ViewBuilder
     private func price() -> some View {
         if let price = viewModel.race.price {
-            info(title: "\(price.min) - \(price.max)", subtitle: "\(price.currency)", systemName: "dollarsign.circle")
+            info(title: "\(Int(price.min)) - \(Int(price.max))", subtitle: "\(price.currency)", systemName: "dollarsign.circle")
         }
     }
 
@@ -84,7 +83,7 @@ struct RaceItemDetailView: View {
     @ViewBuilder
     private func seatmap() -> some View {
         if let url = viewModel.race.seatmapURL {
-            cachedImage(url: url, height: 200)
+            cachedImage(url: url, height: 250)
         }
     }
 
@@ -123,7 +122,7 @@ struct RaceItemDetailView: View {
             .loadDiskFileSynchronously()
             .cacheMemoryOnly()
             .resizable()
-            .aspectRatio(contentMode: .fill)
+            .aspectRatio(contentMode: .fit)
             .frame(maxHeight: height)
             .clipShape(.rect(cornerRadius: 1.0))
     }

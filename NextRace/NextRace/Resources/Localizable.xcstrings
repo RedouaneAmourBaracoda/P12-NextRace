@@ -289,6 +289,22 @@
         }
       }
     },
+    "search.result-list.loadmore-button.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Load more"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charger plus"
+          }
+        }
+      }
+    },
     "search.result-list.screen-title" : {
       "localizations" : {
         "en" : {

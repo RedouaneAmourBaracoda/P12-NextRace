@@ -19,11 +19,6 @@ final class TicketMasterAPIServiceTests: XCTestCase {
         raceAPIService = .init(session: sessionMock)
     }
 
-    func testNetworkCallFailsWhenInvalidURL() async throws {
-        raceAPIService.urlString = ""
-        try await testTicketMasterAPIError(statusCode: Int(), testedError: .invalidURL)
-    }
-
     func testNetworkCallFailsWhenStatusCodeIs400() async throws {
         try await testTicketMasterAPIError(statusCode: 400, testedError: .badRequest)
     }
@@ -135,7 +130,7 @@ final class TicketMasterAPIServiceTests: XCTestCase {
         // Then.
 
         do {
-            let actualResult = try await raceAPIService.fetchRaces(for: "")
+            let actualResult = try await raceAPIService.fetchRaces()
             let expectedResult = TicketMasterAPIResponse(
                 _embedded: .init(
                     events: [
@@ -212,7 +207,7 @@ final class TicketMasterAPIServiceTests: XCTestCase {
         // Then.
 
         do {
-            _ = try await raceAPIService.fetchRaces(for: "")
+            _ = try await raceAPIService.fetchRaces()
         } catch let error as TicketMasterAPIError {
             XCTAssertTrue(error == testedError)
             XCTAssertEqual(error.errorDescription, testedError.errorDescription)

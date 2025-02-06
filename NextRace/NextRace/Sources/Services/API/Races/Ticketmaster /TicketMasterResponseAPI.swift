@@ -28,8 +28,8 @@ struct Event: Codable, Equatable {
 
 struct PriceRanges: Codable, Equatable {
     let currency: String
-    let min: Int
-    let max: Int
+    let min: Float
+    let max: Float
 }
 
 struct SeatMap: Codable, Equatable {

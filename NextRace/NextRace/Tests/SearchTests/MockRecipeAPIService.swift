@@ -17,7 +17,7 @@ final class MockRaceAPIService: RaceAPIService {
 
     var fetchRacesCallsCounter = 0
 
-    func fetchRaces(for championship: String) async throws -> SearchResult {
+    func fetchRaces(for championship: String = "", at page: Int = Int()) async throws -> SearchResult {
         fetchRacesCallsCounter += 1
 
         guard let error else { return resultToReturn }

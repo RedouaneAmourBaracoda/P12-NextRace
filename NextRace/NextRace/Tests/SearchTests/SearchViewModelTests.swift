@@ -131,13 +131,19 @@ final class SearchViewModelTests: XCTestCase {
 extension SearchResult {
     static func random() -> SearchResult {
         .init(
-            page: .init(
-                size: .random(in: 0...10000),
-                totalElements: .random(in: 0...10000),
-                totalPages: .random(in: 0...1000),
-                number: .random(in: 0...100)
-            ),
+            page: .random(),
             races: .random()
+        )
+    }
+}
+
+extension Page {
+    static func random() -> Page {
+        .init(
+            size: .random(in: 0...10000),
+            totalElements: .random(in: 0...10000),
+            totalPages: .random(in: 0...1000),
+            number: .random(in: 0...100)
         )
     }
 }

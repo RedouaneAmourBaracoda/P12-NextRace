@@ -28,7 +28,9 @@ struct SearchView: View {
             Spacer()
             searchActionView()
                 .navigationDestination(isPresented: $viewModel.showRaces) {
-                    RaceListView(viewModel: .init(races: viewModel.searchResult?.races ?? []))
+                    if let searchResult = viewModel.searchResult {
+                        RaceListView(viewModel: .init(selectedChampionship: viewModel.selectedChampionship, searchResult: searchResult))
+                    }
                 }
         }
         .onAppear { viewModel.resetState() }

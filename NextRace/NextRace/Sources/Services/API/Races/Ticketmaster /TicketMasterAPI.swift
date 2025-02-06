@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RaceAPIService {
-    func fetchRaces(for championship: String) async throws -> SearchResult
+    func fetchRaces(for championship: String, at page: Int) async throws -> SearchResult
 }
 
 struct TicketMasterAPIService: RaceAPIService {
@@ -25,12 +25,10 @@ struct TicketMasterAPIService: RaceAPIService {
 
         static let locale = "*"
 
-        static let url = ressource + "apikey=" + apikey + "&locale=" + locale + "&genreId=" + raceEventGenreId + "&keyword="
+        static let url = ressource + "apikey=" + apikey + "&locale=" + locale + "&genreId=" + raceEventGenreId
     }
 
     // MARK: - Properties.
-
-    var urlString = APIInfos.url
 
     private var session: URLSession
 
@@ -42,9 +40,9 @@ struct TicketMasterAPIService: RaceAPIService {
 
     // MARK: - Methods.
 
-    func fetchRaces(for championship: String) async throws -> SearchResult {
+    func fetchRaces(for championship: String = "", at page: Int = Int()) async throws -> SearchResult {
 
-        guard let url = URL(string: urlString + championship) else { throw TicketMasterAPIError.invalidURL }
+        guard let url = URL(string: APIInfos.url + "&keyword=" + championship + "&page=" + String(page)) else { throw TicketMasterAPIError.invalidURL }
 
         let request = URLRequest(url: url)
 

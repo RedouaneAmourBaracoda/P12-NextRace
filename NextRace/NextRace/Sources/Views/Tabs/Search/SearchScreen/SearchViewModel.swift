@@ -41,7 +41,7 @@ final class SearchViewModel: ObservableObject {
         searchInProgress = true
 
         do {
-            searchResult = try await raceAPIService.fetchRaces(for: selectedChampionship.rawValue)
+            searchResult = try await raceAPIService.fetchRaces(for: selectedChampionship.rawValue, at: 0)
             searchInProgress = false
             showRaces = true
         } catch {
