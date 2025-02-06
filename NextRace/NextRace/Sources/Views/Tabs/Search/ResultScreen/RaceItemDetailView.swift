@@ -24,8 +24,19 @@ struct RaceItemDetailView: View {
                     ToolbarItem(placement: .topBarLeading) {
                         Text(Localizable.backButtonTitle).opacity(0)
                     }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            viewModel.isFavorite ? viewModel.removeFromFavorites() : viewModel.addToFavorites()
+                        } label: {
+                            viewModel.isFavorite ? Image(systemName: "star.fill") : Image(systemName: "star")
+                        }
+                    }
+                }
+                .alert(isPresented: $viewModel.shouldPresentAlert) {
+                    Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
                 }
                 .background { CustomColors.backgroundColor.ignoresSafeArea() }
+                .onAppear { viewModel.refreshFavoriteState() }
         }
     }
 
@@ -48,9 +59,7 @@ struct RaceItemDetailView: View {
             HStack {
                 date()
                 Spacer()
-                Divider()
-                    .frame(width: 1)
-                    .background { Color.white }
+                Divider().frame(width: 1).background { Color.white }
                 Spacer()
                 price()
             }

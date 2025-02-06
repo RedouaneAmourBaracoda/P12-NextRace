@@ -13,9 +13,54 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     @Published var race: Race
 
+    @Published var isFavorite: Bool = false
+
+    @Published var shouldPresentAlert = false
+
+    var errorMessage: String = ""
+
+    // MARK: - Services
+
+    private let coreDataService: CoreDataService
+
     // MARK: - Initialization
 
-    init(race: Race) {
+    init(race: Race, coreDataService: CoreDataService = CoreDataStack.shared) {
         self.race = race
+        self.coreDataService = coreDataService
+    }
+
+    // MARK: - Methods
+
+    func addToFavorites() {
+        do {
+            try coreDataService.add(newRace: race)
+            isFavorite = true
+        } catch {
+            present(error: error)
+        }
+    }
+
+    func removeFromFavorites() {
+        do {
+            try coreDataService.remove(race: race)
+            isFavorite = false
+        } catch {
+            present(error: error)
+        }
+    }
+
+    func refreshFavoriteState() {
+        do {
+            let favoriteRaces = try coreDataService.fetch()
+            isFavorite = favoriteRaces.contains(race)
+        } catch {
+            present(error: error)
+        }
+    }
+
+    private func present(error: Error) {
+        errorMessage = Localizable.undeterminedErrorDescription
+        shouldPresentAlert = true
     }
 }

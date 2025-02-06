@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "favorite-races.empty-list.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add or remove a race by tapping the star button on the top right hand corner."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez ou supprimez une course en appuyant sur le bouton étoile dans le coin supérieur droit."
+          }
+        }
+      }
+    },
     "race-detail.back-button.title" : {
       "localizations" : {
         "en" : {

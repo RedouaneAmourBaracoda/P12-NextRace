@@ -77,7 +77,7 @@ struct Race: Equatable, Identifiable {
     let seatmapURL: String?
     let price: PriceRanges?
 
-    struct Venue: Equatable {
+    struct Venue: Codable, Equatable {
         let name: String
         let postalCode: String
         let city: String

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B85CA4392D52D437004A46D3 /* RaceListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CA4382D52D437004A46D3 /* RaceListViewModelTests.swift */; };
+		B85CA43D2D54BF12004A46D3 /* FavoriteRaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85CA43B2D54BF12004A46D3 /* FavoriteRaces.xcdatamodeld */; };
+		B85CA43F2D54BF98004A46D3 /* FavoriteRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CA43E2D54BF98004A46D3 /* FavoriteRace.swift */; };
+		B85CA4412D54C22F004A46D3 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CA4402D54C22F004A46D3 /* CoreDataService.swift */; };
+		B85CA4442D54CDFF004A46D3 /* FavoriteRacesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CA4432D54CDFF004A46D3 /* FavoriteRacesListView.swift */; };
+		B85CA4462D54CE26004A46D3 /* FavoriteRacesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CA4452D54CE26004A46D3 /* FavoriteRacesListViewModel.swift */; };
 		B8AE755C2D4C9D7900EEF1D8 /* NextRaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE755B2D4C9D7900EEF1D8 /* NextRaceApp.swift */; };
 		B8AE75602D4C9D7C00EEF1D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8AE755F2D4C9D7C00EEF1D8 /* Assets.xcassets */; };
 		B8AE75632D4C9D7C00EEF1D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8AE75622D4C9D7C00EEF1D8 /* Preview Assets.xcassets */; };
@@ -44,6 +49,11 @@
 
 /* Begin PBXFileReference section */
 		B85CA4382D52D437004A46D3 /* RaceListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListViewModelTests.swift; sourceTree = "<group>"; };
+		B85CA43C2D54BF12004A46D3 /* FavoriteRace.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteRace.xcdatamodel; sourceTree = "<group>"; };
+		B85CA43E2D54BF98004A46D3 /* FavoriteRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRace.swift; sourceTree = "<group>"; };
+		B85CA4402D54C22F004A46D3 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		B85CA4432D54CDFF004A46D3 /* FavoriteRacesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRacesListView.swift; sourceTree = "<group>"; };
+		B85CA4452D54CE26004A46D3 /* FavoriteRacesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRacesListViewModel.swift; sourceTree = "<group>"; };
 		B8AE75582D4C9D7900EEF1D8 /* NextRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE755B2D4C9D7900EEF1D8 /* NextRaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextRaceApp.swift; sourceTree = "<group>"; };
 		B8AE755F2D4C9D7C00EEF1D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +99,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B85CA43A2D54BEEB004A46D3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				B85CA43E2D54BF98004A46D3 /* FavoriteRace.swift */,
+				B85CA4402D54C22F004A46D3 /* CoreDataService.swift */,
+				B85CA43B2D54BF12004A46D3 /* FavoriteRaces.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		B85CA4422D54CDD4004A46D3 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B85CA4432D54CDFF004A46D3 /* FavoriteRacesListView.swift */,
+				B85CA4452D54CE26004A46D3 /* FavoriteRacesListViewModel.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		B8AE754F2D4C9D7900EEF1D8 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +203,7 @@
 		B8AE758C2D4CB02F00EEF1D8 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				B85CA4422D54CDD4004A46D3 /* Favorites */,
 				B8AE758D2D4CB03600EEF1D8 /* Search */,
 			);
 			path = Tabs;
@@ -200,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				B8AE75A02D4DFB4E00EEF1D8 /* API */,
+				B85CA43A2D54BEEB004A46D3 /* Persistence */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -378,14 +409,19 @@
 				B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */,
 				B8AE758B2D4CB01D00EEF1D8 /* SearchView.swift in Sources */,
 				B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */,
+				B85CA4412D54C22F004A46D3 /* CoreDataService.swift in Sources */,
+				B85CA43D2D54BF12004A46D3 /* FavoriteRaces.xcdatamodeld in Sources */,
 				B8AE75D02D51EA9B00EEF1D8 /* RaceItemDetailView.swift in Sources */,
 				B8AE759A2D4CC2B600EEF1D8 /* SearchViewModel.swift in Sources */,
 				B8AE75C62D515E1500EEF1D8 /* RaceListView.swift in Sources */,
+				B85CA43F2D54BF98004A46D3 /* FavoriteRace.swift in Sources */,
 				B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */,
 				B8AE75A62D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift in Sources */,
 				B8AE755C2D4C9D7900EEF1D8 /* NextRaceApp.swift in Sources */,
 				B8AE75A42D4DFBC700EEF1D8 /* TicketMasterAPI.swift in Sources */,
 				B8AE75D22D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift in Sources */,
+				B85CA4442D54CDFF004A46D3 /* FavoriteRacesListView.swift in Sources */,
+				B85CA4462D54CE26004A46D3 /* FavoriteRacesListViewModel.swift in Sources */,
 				B8AE759C2D4CC2E100EEF1D8 /* CustomNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,6 +719,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B85CA43B2D54BF12004A46D3 /* FavoriteRaces.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B85CA43C2D54BF12004A46D3 /* FavoriteRace.xcdatamodel */,
+			);
+			currentVersion = B85CA43C2D54BF12004A46D3 /* FavoriteRace.xcdatamodel */;
+			path = FavoriteRaces.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B8AE75502D4C9D7900EEF1D8 /* Project object */;
 }

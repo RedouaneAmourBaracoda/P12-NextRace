@@ -152,7 +152,7 @@ extension Array<Race> {
     static let forPreview: [Race] = [.nascarCupSeries, .nascarXfinitySeries]
 }
 
-private extension Localizable {
+extension Localizable {
     static let raceListNavigationTitle = NSLocalizedString(
         "search.result-list.screen-title",
         comment: ""
