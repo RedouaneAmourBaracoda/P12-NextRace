@@ -25,7 +25,9 @@ struct TicketMasterAPIService: RaceAPIService {
 
         static let locale = "*"
 
-        static let url = ressource + "apikey=" + apikey + "&locale=" + locale + "&genreId=" + raceEventGenreId
+        static let sortDate = "date,asc"
+
+        static let url = ressource + "apikey=" + apikey + "&locale=" + locale + "&genreId=" + raceEventGenreId + "&sort=" + sortDate
     }
 
     // MARK: - Properties.
