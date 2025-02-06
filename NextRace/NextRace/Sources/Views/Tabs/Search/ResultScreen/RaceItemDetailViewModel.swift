@@ -60,7 +60,8 @@ final class RaceItemDetailViewModel: ObservableObject {
     }
 
     private func present(error: Error) {
-        errorMessage = Localizable.undeterminedErrorDescription
+        NSLog(error.localizedDescription)
+        errorMessage = Localizable.persistenceErrorDescription
         shouldPresentAlert = true
     }
 }

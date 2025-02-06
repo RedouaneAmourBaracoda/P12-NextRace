@@ -65,12 +65,13 @@ final class CoreDataStack: CoreDataService {
                 let name = $0.name,
                 let imageURL = $0.imageURL,
                 let date = $0.date,
-                let seatmapURL = $0.seatmapURL,
                 let venueData = $0.venue
             else {
                 print("Failed to load one race into Database")
                 return nil
             }
+
+            let seatmapURL = $0.seatmapURL
 
             let venue = try JSONDecoder().decode(Race.Venue.self, from: venueData)
 

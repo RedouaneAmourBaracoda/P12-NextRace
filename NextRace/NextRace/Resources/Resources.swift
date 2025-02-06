@@ -22,6 +22,11 @@ enum Localizable {
         comment: ""
     )
 
+    static let persistenceErrorDescription = NSLocalizedString(
+        "races.persistence.errors.undetermined.description",
+        comment: ""
+    )
+
     static let backButtonTitle = NSLocalizedString(
         "race-detail.back-button.title",
         comment: ""

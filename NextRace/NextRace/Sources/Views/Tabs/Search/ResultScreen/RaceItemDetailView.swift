@@ -59,8 +59,6 @@ struct RaceItemDetailView: View {
             HStack {
                 date()
                 Spacer()
-                Divider().frame(width: 1).background { Color.white }
-                Spacer()
                 price()
             }
             .padding(.bottom)
@@ -81,7 +79,13 @@ struct RaceItemDetailView: View {
     @ViewBuilder
     private func price() -> some View {
         if let price = viewModel.race.price {
-            info(title: "\(Int(price.min)) - \(Int(price.max))", subtitle: "\(price.currency)", systemName: "dollarsign.circle")
+            Divider().frame(width: 1).background { Color.white }
+            Spacer()
+            if price.min == price.max {
+                info(title: "\(Int(price.max))", subtitle: "\(price.currency)", systemName: "dollarsign.circle")
+            } else {
+                info(title: "\(Int(price.min)) - \(Int(price.max))", subtitle: "\(price.currency)", systemName: "dollarsign.circle")
+            }
         }
     }
 

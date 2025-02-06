@@ -33,7 +33,7 @@ final class FavoriteRacesListViewModel: ObservableObject {
         do {
             favoriteRaces = try coreDataService.fetch()
         } catch {
-            errorMessage = Localizable.undeterminedErrorDescription
+            errorMessage = Localizable.persistenceErrorDescription
             shouldPresentAlert = true
         }
     }
