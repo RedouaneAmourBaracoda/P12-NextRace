@@ -8,7 +8,6 @@
 import SwiftUI
 
 // A faire :
-// - Ajouter le .xcprivacy
 // - CoreData Ajoutter l'optionel sur les champs qui le sont (Price, Date)
 // - Requeter les courses par ordre de date (sort: "date,asc")
 // - Tester calendar sur un vrai device -> se connecter au compte apple developer avec redouane.amour@gmail.com (gratuit) et libérer l'espace en supprimant les anciennes applications.
