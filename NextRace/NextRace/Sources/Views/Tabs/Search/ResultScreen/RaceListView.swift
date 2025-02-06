@@ -23,6 +23,9 @@ struct RaceListView: View {
                         Text(Localizable.backButtonTitle).opacity(0)
                     }
                 }
+                .alert(isPresented: $viewModel.shouldPresentAlert) {
+                    Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
+                }
         }
     }
 

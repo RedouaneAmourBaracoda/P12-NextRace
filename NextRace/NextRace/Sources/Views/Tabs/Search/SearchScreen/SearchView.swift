@@ -89,7 +89,7 @@ struct SearchView: View {
     }
 }
 
-private extension Localizable {
+extension Localizable {
     static let carSelectionTitle = NSLocalizedString(
         "search.cars.title",
         comment: ""
