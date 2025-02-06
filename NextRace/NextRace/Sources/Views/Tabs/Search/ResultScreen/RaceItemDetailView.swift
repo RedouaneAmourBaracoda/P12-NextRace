@@ -66,6 +66,9 @@ struct RaceItemDetailView: View {
     private func date() -> some View {
         if let date = viewModel.race.date {
             info(title: date.formatted(.dateTime.day().month(.wide)), subtitle: date.formatted(.dateTime.year()), systemName: "calendar")
+                .onTapGesture {
+                    viewModel.addRaceToCalendar()
+                }
         }
     }
 

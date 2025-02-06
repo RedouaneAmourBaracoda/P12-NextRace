@@ -17,6 +17,86 @@
         }
       }
     },
+    "race-detail.calendar-access-denied-alert.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access to the calendar was denied."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'accès à votre calendrier a été restreint. Veuillez autoriser son utilisation pour poursuivre."
+          }
+        }
+      }
+    },
+    "race-detail.calendar-alert.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The event has been successfully added to your calendar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'évènement a bien été ajouté à votre calendrier."
+          }
+        }
+      }
+    },
+    "race-detail.calendar-alert.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Event Added"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Évènement ajouté"
+          }
+        }
+      }
+    },
+    "race-detail.calendar-error-alert.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was an error adding the event to your calendar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur s'est produit lors de l'ajout de l'évènement à votre calendrier. Veuillez réessayer plus tard."
+          }
+        }
+      }
+    },
+    "race-detail.calendar-error-alert.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
+          }
+        }
+      }
+    },
     "race-detail.navigation-title" : {
       "localizations" : {
         "en" : {
