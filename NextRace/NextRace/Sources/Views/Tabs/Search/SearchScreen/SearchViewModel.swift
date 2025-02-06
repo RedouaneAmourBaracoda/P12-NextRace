@@ -14,7 +14,7 @@ final class SearchViewModel: ObservableObject {
 
     @Published var searchResult: SearchResult?
 
-    @Published var selectedChampionship: Championship = .nascar
+    @Published var selectedChampionship: Championship = .formula
 
     @Published var searchInProgress = false
 
@@ -88,10 +88,22 @@ struct Race: Equatable, Identifiable {
 }
 
 enum Championship: String, CaseIterable, Identifiable {
-    case nascar
     case formula
+    case monster
+    case nascar
 
     var id: Self {
         return self
+    }
+
+    var imageName: String {
+        switch self {
+        case .formula:
+            "Formula-image"
+        case .monster:
+            "Monster-image"
+        case .nascar:
+            "Nascar-image"
+        }
     }
 }

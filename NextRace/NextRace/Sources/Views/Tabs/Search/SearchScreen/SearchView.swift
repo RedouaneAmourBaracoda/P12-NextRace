@@ -45,10 +45,6 @@ struct SearchView: View {
                     .font(.custom(CustomFonts.body, size: 25.0))
                     .foregroundStyle(.white)
                 Spacer()
-                Image(systemName: "car")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
             }
 
             Picker(Localizable.carSelectionTitle, selection: $viewModel.selectedChampionship) {
@@ -57,6 +53,11 @@ struct SearchView: View {
                 }
             }
             .pickerStyle(.segmented)
+
+            Image(viewModel.selectedChampionship.imageName, bundle: .main)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 150)
         }
         .padding()
     }
