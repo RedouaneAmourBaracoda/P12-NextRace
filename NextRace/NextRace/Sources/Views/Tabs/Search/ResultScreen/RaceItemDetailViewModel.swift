@@ -37,7 +37,7 @@ final class RaceItemDetailViewModel: ObservableObject {
             try coreDataService.add(newRace: race)
             isFavorite = true
         } catch {
-            present(error: error)
+            presentError()
         }
     }
 
@@ -46,7 +46,7 @@ final class RaceItemDetailViewModel: ObservableObject {
             try coreDataService.remove(race: race)
             isFavorite = false
         } catch {
-            present(error: error)
+            presentError()
         }
     }
 
@@ -55,12 +55,11 @@ final class RaceItemDetailViewModel: ObservableObject {
             let favoriteRaces = try coreDataService.fetch()
             isFavorite = favoriteRaces.contains(race)
         } catch {
-            present(error: error)
+            presentError()
         }
     }
 
-    private func present(error: Error) {
-        NSLog(error.localizedDescription)
+    private func presentError() {
         errorMessage = Localizable.persistenceErrorDescription
         shouldPresentAlert = true
     }
