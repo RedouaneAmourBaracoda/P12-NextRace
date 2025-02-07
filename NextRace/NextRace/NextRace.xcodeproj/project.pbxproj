@@ -44,6 +44,7 @@
 		B8FE32322D5651D800B46806 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32312D5651D800B46806 /* CoreDataStackMock.swift */; };
 		B8FE32342D56521200B46806 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32332D56521200B46806 /* CoreDataStackTests.swift */; };
 		B8FE32362D56528B00B46806 /* RaceItemDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */; };
+		B8FE32392D56558B00B46806 /* CalendarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		B8FE32312D5651D800B46806 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
 		B8FE32332D56521200B46806 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
 		B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailViewModelTests.swift; sourceTree = "<group>"; };
+		B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +122,9 @@
 		B85CA4582D55E1D9004A46D3 /* CalendarTests */ = {
 			isa = PBXGroup;
 			children = (
-				B85CA4592D55E44D004A46D3 /* UserCalendarTests.swift */,
+				B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */,
 				B85CA45B2D55EC15004A46D3 /* EKEventStoreFake.swift */,
+				B85CA4592D55E44D004A46D3 /* UserCalendarTests.swift */,
 			);
 			path = CalendarTests;
 			sourceTree = "<group>";
@@ -166,10 +169,10 @@
 		B8AE756B2D4C9D7C00EEF1D8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B8FE32372D5653FA00B46806 /* ViewModelTests */,
-				B8FE322E2D56519400B46806 /* DataPersistenceTests */,
 				B85CA4582D55E1D9004A46D3 /* CalendarTests */,
+				B8FE322E2D56519400B46806 /* DataPersistenceTests */,
 				B8AE75BA2D4F8A7500EEF1D8 /* RaceAPITests */,
+				B8FE32372D5653FA00B46806 /* ViewModelTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -329,7 +332,6 @@
 		B8FE322E2D56519400B46806 /* DataPersistenceTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8FE322F2D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift */,
 				B8FE32332D56521200B46806 /* CoreDataStackTests.swift */,
 				B8FE32312D5651D800B46806 /* CoreDataStackMock.swift */,
 			);
@@ -339,9 +341,10 @@
 		B8FE32372D5653FA00B46806 /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */,
+				B8FE322F2D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift */,
 				B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */,
 				B85CA4382D52D437004A46D3 /* RaceListViewModelTests.swift */,
+				B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				B8AE759A2D4CC2B600EEF1D8 /* SearchViewModel.swift in Sources */,
 				B8AE75C62D515E1500EEF1D8 /* RaceListView.swift in Sources */,
 				B8FE32262D5644A000B46806 /* FavoriteRace.swift in Sources */,
+				B8FE32392D56558B00B46806 /* CalendarServiceMock.swift in Sources */,
 				B85CA45C2D55EC15004A46D3 /* EKEventStoreFake.swift in Sources */,
 				B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */,
 				B8FE322B2D5649D300B46806 /* FavoriteRacesListView.swift in Sources */,

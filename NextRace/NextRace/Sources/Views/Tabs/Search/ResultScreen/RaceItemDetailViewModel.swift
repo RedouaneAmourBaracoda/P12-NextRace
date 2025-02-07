@@ -116,6 +116,8 @@ final class RaceItemDetailViewModel: ObservableObject {
             let endDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
         else { return }
 
+        scheduleInProgress = true
+
         do {
             let scheduledEvents = try await calendarService.fetchEvents(from: startDate, to: endDate)
             isRaceScheduled = scheduledEvents.contains(where: {
@@ -123,15 +125,17 @@ final class RaceItemDetailViewModel: ObservableObject {
                 && $0.date == date
                 && $0.location == race.venue?.name
             })
+            scheduleInProgress = false
         } catch {
             alertTitle = Localizable.calendarUpdateErrorAlertTitle
             alertMessage = Localizable.calendarUpdateErrorAlertMessage
+            scheduleInProgress = false
             shouldPresentAlert = true
         }
     }
 }
 
-private extension Localizable {
+extension Localizable {
     static let calendarSaveSuccessAlertTitle = NSLocalizedString(
         "race-detail.calendar.save-succes-alert.title",
         comment: ""

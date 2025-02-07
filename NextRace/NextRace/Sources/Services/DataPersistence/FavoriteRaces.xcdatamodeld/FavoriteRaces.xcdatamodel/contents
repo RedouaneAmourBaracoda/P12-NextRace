@@ -4,7 +4,7 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Binary"/>
         <attribute name="seatmapURL" optional="YES" attributeType="String"/>
         <attribute name="venue" optional="YES" attributeType="Binary"/>

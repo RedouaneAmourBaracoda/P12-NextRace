@@ -33,7 +33,9 @@ final class CoreDataStack: CoreDataService {
         dto.imageURL = newRace.imageURL
         dto.seatmapURL = newRace.seatmapURL
         dto.date = newRace.date
-        dto.venue = try JSONEncoder().encode(newRace.venue)
+        if let venue = newRace.venue {
+            dto.venue = try JSONEncoder().encode(venue)
+        }
         if let price = newRace.price {
             dto.price = try JSONEncoder().encode(price)
         }
@@ -61,18 +63,16 @@ final class CoreDataStack: CoreDataService {
         return try favoriteRaces.compactMap {
             guard
                 let id = $0.id,
-                let name = $0.name,
-                let imageURL = $0.imageURL,
-                let date = $0.date,
-                let venueData = $0.venue
+                let name = $0.name
             else {
                 print("Failed to load one race into Database")
                 return nil
             }
 
-            let seatmapURL = $0.seatmapURL
-
-            let venue = try JSONDecoder().decode(Race.Venue.self, from: venueData)
+            var venue: Race.Venue? = nil
+            if let venueData = $0.venue {
+                venue = try JSONDecoder().decode(Race.Venue.self, from: venueData)
+            }
 
             var price: PriceRanges? = nil
             if let priceData = $0.price {
@@ -82,10 +82,10 @@ final class CoreDataStack: CoreDataService {
             return Race(
                 id: id,
                 name: name,
-                imageURL: imageURL,
+                imageURL: $0.imageURL,
                 venue: venue,
-                date: date,
-                seatmapURL: seatmapURL,
+                date: $0.date,
+                seatmapURL: $0.seatmapURL,
                 price: price
             )
         }

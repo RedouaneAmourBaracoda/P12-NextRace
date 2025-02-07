@@ -15,11 +15,15 @@ final class RaceItemDetailViewModelTests: XCTestCase {
 
     var coreDataService: CoreDataStackMock!
 
+    var calendarService: CalendarServiceMock!
+
     override func setUpWithError() throws {
 
         coreDataService = CoreDataStackMock()
 
-        raceItemDetailViewModel = .init(race: .random(), coreDataService: coreDataService)
+        calendarService = CalendarServiceMock()
+
+        raceItemDetailViewModel = .init(race: .random(), calendarService: calendarService, coreDataService: coreDataService)
     }
 
     func testAddToFavoritesFails() {
@@ -185,5 +189,161 @@ final class RaceItemDetailViewModelTests: XCTestCase {
         XCTAssertTrue(raceItemDetailViewModel.alertTitle.isEmpty)
 
         XCTAssertTrue(raceItemDetailViewModel.alertMessage.isEmpty)
+    }
+
+    func testAddEventToCalendarWhenThrowsError() async {
+        // Given.
+
+        calendarService.error = RandomError()
+
+        XCTAssertFalse(raceItemDetailViewModel.isRaceScheduled)
+
+        // When.
+
+        await raceItemDetailViewModel.addRaceToCalendar()
+
+        // Then.
+
+        XCTAssertEqual(1, calendarService.addEventCallsCounter)
+
+        XCTAssertFalse(raceItemDetailViewModel.isRaceScheduled)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertTitle, Localizable.calendarUpdateErrorAlertTitle)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertMessage, Localizable.calendarSaveErrorAlertMessage)
+
+        XCTAssertTrue(raceItemDetailViewModel.shouldPresentAlert)
+
+        XCTAssertFalse(raceItemDetailViewModel.scheduleInProgress)
+    }
+
+    func testAddEventToCalendarWhenRequestAccessIsDenied() async {
+        // Given.
+
+        calendarService.booleanToReturn = false
+
+        // When.
+
+        await raceItemDetailViewModel.addRaceToCalendar()
+
+        // Then.
+
+        XCTAssertEqual(1, calendarService.addEventCallsCounter)
+
+        XCTAssertFalse(raceItemDetailViewModel.isRaceScheduled)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertTitle, Localizable.calendarUpdateErrorAlertTitle)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertMessage, Localizable.calendarSaveErrorAlertMessage)
+
+        XCTAssertTrue(raceItemDetailViewModel.shouldPresentAlert)
+
+        XCTAssertFalse(raceItemDetailViewModel.scheduleInProgress)
+    }
+
+    func testAddEventToCalendarWhenRequestAccessIsGranted() async {
+        // Given.
+
+        calendarService.booleanToReturn = true
+
+        // When.
+
+        await raceItemDetailViewModel.addRaceToCalendar()
+
+        // Then.
+
+        XCTAssertEqual(1, calendarService.addEventCallsCounter)
+
+        XCTAssertTrue(raceItemDetailViewModel.isRaceScheduled)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertTitle, Localizable.calendarSaveSuccessAlertTitle)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertMessage, Localizable.calendarSaveSuccessAlertMessage)
+
+        XCTAssertTrue(raceItemDetailViewModel.shouldPresentAlert)
+
+        XCTAssertFalse(raceItemDetailViewModel.scheduleInProgress)
+    }
+
+    func testUpdateCalendarStatusWhenRequestAccessThrowsError() async {
+        // Given.
+
+        calendarService.error = RandomError()
+
+        // When.
+
+        await raceItemDetailViewModel.updateCalendarStatus()
+
+        // Then.
+
+        XCTAssertEqual(1, calendarService.fetchEventsCallsCounter)
+
+        XCTAssertFalse(raceItemDetailViewModel.isRaceScheduled)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertTitle, Localizable.calendarUpdateErrorAlertTitle)
+
+        XCTAssertEqual(raceItemDetailViewModel.alertMessage, Localizable.calendarUpdateErrorAlertMessage)
+
+        XCTAssertTrue(raceItemDetailViewModel.shouldPresentAlert)
+
+        XCTAssertFalse(raceItemDetailViewModel.scheduleInProgress)
+    }
+
+    func testUpdateCalendarStatusWhenRequestAccessIsDenied() async {
+        // Given.
+
+        calendarService.fetchedEventsToReturn = []
+
+        // When.
+
+        await raceItemDetailViewModel.updateCalendarStatus()
+
+        // Then.
+
+        XCTAssertEqual(1, calendarService.fetchEventsCallsCounter)
+
+        XCTAssertFalse(raceItemDetailViewModel.isRaceScheduled)
+
+        XCTAssertTrue(raceItemDetailViewModel.alertTitle.isEmpty)
+
+        XCTAssertTrue(raceItemDetailViewModel.alertMessage.isEmpty)
+
+        XCTAssertFalse(raceItemDetailViewModel.shouldPresentAlert)
+
+        XCTAssertFalse(raceItemDetailViewModel.scheduleInProgress)
+    }
+
+    func testUpdateCalendarStatusWhenRequestAccessIsGranted() async {
+        // Given.
+
+        let title: String = .random()
+
+        let location: String = .random()
+
+        let date: Date = .random()
+
+        raceItemDetailViewModel.race = .init(id: .random(), name: title, imageURL: .random(), venue: .init(name: location, postalCode: .random(), city: .random(), state: .random(), country: .random(), address: .random()), date: date, seatmapURL: .random(), price: nil)
+
+        let event: CalendarEvent = .init(title: title, location: location, date: date)
+
+        calendarService.fetchedEventsToReturn = [event]
+
+        // When.
+
+        await raceItemDetailViewModel.updateCalendarStatus()
+
+        // Then.
+
+        XCTAssertEqual(1, calendarService.fetchEventsCallsCounter)
+
+        XCTAssertTrue(raceItemDetailViewModel.isRaceScheduled)
+
+        XCTAssertTrue(raceItemDetailViewModel.alertTitle.isEmpty)
+
+        XCTAssertTrue(raceItemDetailViewModel.alertMessage.isEmpty)
+
+        XCTAssertFalse(raceItemDetailViewModel.shouldPresentAlert)
+
+        XCTAssertFalse(raceItemDetailViewModel.scheduleInProgress)
     }
 }

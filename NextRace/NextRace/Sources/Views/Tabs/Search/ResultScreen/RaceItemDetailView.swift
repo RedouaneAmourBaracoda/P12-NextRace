@@ -105,9 +105,15 @@ struct RaceItemDetailView: View {
         if let price = viewModel.race.price {
             HStack {
                 resizableImage(systemName: "dollarsign.circle")
-                Text("\(Int(price.min)) - \(Int(price.max)) \(price.currency)")
-                    .font(.custom(CustomFonts.body, size: 20))
-                    .foregroundStyle(Color.white)
+                if Int(price.min) == Int(price.max) {
+                    Text("\(Int(price.max)) \(price.currency)")
+                        .font(.custom(CustomFonts.body, size: 20))
+                        .foregroundStyle(Color.white)
+                } else {
+                    Text("\(Int(price.min)) - \(Int(price.max)) \(price.currency)")
+                        .font(.custom(CustomFonts.body, size: 20))
+                        .foregroundStyle(Color.white)
+                }
             }
         }
     }
