@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>NSCalendarUsageDescription</key>
-	<string>Request Calendar access to add race event</string>
-	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<string>Request Calendar access to fetch and add race events</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>

@@ -26,6 +26,7 @@ struct RaceItemDetailView: View {
                     }
                 }
                 .background { CustomColors.backgroundColor.ignoresSafeArea() }
+                .onAppear { Task { await viewModel.updateCalendarStatus() } }
         }
     }
 
@@ -61,17 +62,25 @@ struct RaceItemDetailView: View {
     private func date() -> some View {
         if let date = viewModel.race.date {
             HStack {
-                resizableImage(systemName: "calendar")
+                resizableImage(systemName: "info.circle")
                 Text(date.formatted(.dateTime.day().month(.wide).year()))
                     .font(.custom(CustomFonts.body, size: 20))
                     .foregroundStyle(Color.white)
                 Spacer()
-                Button {
-                    viewModel.addRaceToCalendar()
-                } label: {
-                    Text(Localizable.scheduleButtonTitle)
+                if viewModel.isRaceScheduled {
+                    resizableImage(systemName: "calendar.badge.checkmark")
+                        .foregroundStyle(.green)
+                } else {
+                    Button {
+                        Task {
+                            await viewModel.addRaceToCalendar()
+                        }
+                    } label: {
+                        Text(Localizable.scheduleButtonTitle)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(viewModel.scheduleInProgress)
                 }
-                .buttonStyle(.borderedProminent)
             }
             .alert(isPresented: $viewModel.showCalendarAlert) {
                 Alert(title: Text(viewModel.calendarAlertTitle), message: Text(viewModel.calendarAlertMessage))

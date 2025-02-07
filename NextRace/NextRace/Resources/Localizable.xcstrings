@@ -49,82 +49,82 @@
         }
       }
     },
-    "race-detail.calendar-access-denied-alert.message" : {
+    "race-detail.calendar.save-error-alert.message" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Access to the calendar was denied."
+            "value" : "This race could not be added to your calendar. It could be due to denied access to your calendar or simply issue with internal services. Please try again later."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accès à votre calendrier a été restreint. Veuillez autoriser son utilisation pour poursuivre."
+            "value" : "Cette course n'a pas pu être ajoutée à votre calendrier. L'accès peut avoir été restreint ou alors il s'agit simplement d'une erreur interne. Veuillez réessayer plus tard."
           }
         }
       }
     },
-    "race-detail.calendar-alert.message" : {
+    "race-detail.calendar.save-succes-alert.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The event has been successfully added to your calendar."
+            "value" : "Race Added."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'évènement a bien été ajouté à votre calendrier."
+            "value" : "Course ajoutée"
           }
         }
       }
     },
-    "race-detail.calendar-alert.title" : {
+    "race-detail.calendar.save-success-alert.message" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Event Added"
+            "value" : "The race has been successfully added to your calendar."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Évènement ajouté"
+            "value" : "La course a été ajoutée à votre calendrier personnel avec succès."
           }
         }
       }
     },
-    "race-detail.calendar-error-alert.message" : {
+    "race-detail.calendar.update-error-alert.message" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "There was an error adding the event to your calendar."
+            "value" : "There was an issue while trying to update scheduled races. Make sure to grant access to your calendar when entering this screen. If already granted then please try again later."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une erreur s'est produit lors de l'ajout de l'évènement à votre calendrier. Veuillez réessayer plus tard."
+            "value" : "Une erreur est survenue en essayant de mettre à jour les courses planifiées dans votre calendrier. Vérifiez que vous ayez bien autorisé l'accès à votre calendrier. Si c'est déjà le cas veuillez réessayer plus tard."
           }
         }
       }
     },
-    "race-detail.calendar-error-alert.title" : {
+    "race-detail.calendar.update-error-alert.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error"
+            "value" : "Error with calendar"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erreur"
+            "value" : "Erreur avec le calendrier"
           }
         }
       }

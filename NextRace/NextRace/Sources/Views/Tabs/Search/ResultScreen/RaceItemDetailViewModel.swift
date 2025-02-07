@@ -17,80 +17,92 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     // MARK: - Calendar
 
+    @Published var scheduleInProgress: Bool = false
+
+    @Published var isRaceScheduled: Bool = false
+
     @Published var showCalendarAlert: Bool = false
 
     @Published var calendarAlertTitle: String = ""
 
     @Published var calendarAlertMessage: String = ""
 
+    let calendarService: CalendarService
+
     // MARK: - Initialization
 
-    init(race: Race) {
+    init(race: Race, calendarService: CalendarService = UserCalendar()) {
         self.race = race
+        self.calendarService = calendarService
     }
 
-    func addRaceToCalendar() {
-        guard let saveDate = race.date else { return }
+    func addRaceToCalendar() async {
+        guard let date = race.date else { return }
 
-        let eventStore = EKEventStore()
+        scheduleInProgress = true
 
-        let eventName = race.name
+        do {
+            try await calendarService.addEvent(
+                calendarEvent: .init(
+                    title: race.name,
+                    location: race.venue?.name,
+                    date: date
+                )
+            )
+            isRaceScheduled = true
+            calendarAlertTitle = Localizable.calendarSaveSuccessAlertTitle
+            calendarAlertMessage = Localizable.calendarSaveSuccessAlertMessage
+            showCalendarAlert = true
+            scheduleInProgress = false
+        } catch {
+            calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
+            calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
+            showCalendarAlert = true
+            scheduleInProgress = false
+        }
+    }
 
-        let eventLocation = race.venue?.name ?? ""
+    func updateCalendarStatus() async {
+        guard
+            let date = race.date,
+            let startDate = Calendar.current.date(byAdding: .day, value: -1, to: date),
+            let endDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        else { return }
 
-        eventStore.requestWriteOnlyAccessToEvents() { [weak self] (granted, error) in
-            if granted && error == nil {
-                let calendarEvent = EKEvent(eventStore: eventStore)
-                calendarEvent.title = eventName
-                calendarEvent.location = eventLocation
-                calendarEvent.startDate = saveDate
-                calendarEvent.endDate = saveDate.addingTimeInterval(3600 * 3)
-                calendarEvent.calendar = eventStore.defaultCalendarForNewEvents
-
-                do {
-                    try eventStore.save(calendarEvent, span: .thisEvent)
-                    DispatchQueue.main.async {
-                        self?.calendarAlertTitle = Localizable.raceDetailScreenCalendarAlertTitle
-                        self?.calendarAlertMessage = Localizable.raceDetailScreenCalendarAlertMessage
-                        self?.showCalendarAlert = true
-                    }
-                } catch {
-                    DispatchQueue.main.async {
-                        self?.calendarAlertTitle = Localizable.raceDetailScreenCalendarErrorAlertTitle
-                        self?.calendarAlertMessage = Localizable.raceDetailScreenCalendarErrorAlertMessage
-                        self?.showCalendarAlert = true
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self?.calendarAlertTitle = Localizable.raceDetailScreenCalendarErrorAlertTitle
-                    self?.calendarAlertMessage = Localizable.raceDetailScreenCalendarAccessDeniedAlertMessage
-                    self?.showCalendarAlert = true
-                }
-            }
+        do {
+            let scheduledEvents = try await calendarService.fetchEvents(from: startDate, to: endDate)
+            isRaceScheduled = scheduledEvents.contains(where: {
+                $0.title == race.name
+                && $0.date == date
+                && $0.location == race.venue?.name
+            })
+        } catch {
+            calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
+            calendarAlertMessage = Localizable.calendarUpdateErrorAlertMessage
+            showCalendarAlert = true
         }
     }
 }
 
 private extension Localizable {
-    static let raceDetailScreenCalendarAlertTitle = NSLocalizedString(
-        "race-detail.calendar-alert.title",
+    static let calendarSaveSuccessAlertTitle = NSLocalizedString(
+        "race-detail.calendar.save-succes-alert.title",
         comment: ""
     )
-    static let raceDetailScreenCalendarAlertMessage = NSLocalizedString(
-        "race-detail.calendar-alert.message",
+    static let calendarSaveSuccessAlertMessage = NSLocalizedString(
+        "race-detail.calendar.save-success-alert.message",
         comment: ""
     )
-    static let raceDetailScreenCalendarErrorAlertTitle = NSLocalizedString(
-        "race-detail.calendar-error-alert.title",
+    static let calendarUpdateErrorAlertTitle = NSLocalizedString(
+        "race-detail.calendar.update-error-alert.title",
         comment: ""
     )
-    static let raceDetailScreenCalendarErrorAlertMessage = NSLocalizedString(
-        "race-detail.calendar-error-alert.message",
+    static let calendarUpdateErrorAlertMessage = NSLocalizedString(
+        "race-detail.calendar.update-error-alert.message",
         comment: ""
     )
-    static let raceDetailScreenCalendarAccessDeniedAlertMessage = NSLocalizedString(
-        "race-detail.calendar-access-denied-alert.message",
+    static let calendarSaveErrorAlertMessage = NSLocalizedString(
+        "race-detail.calendar.save-error-alert.message",
         comment: ""
     )
 }

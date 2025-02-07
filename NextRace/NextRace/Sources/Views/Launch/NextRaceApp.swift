@@ -8,7 +8,6 @@
 import SwiftUI
 
 // A faire :
-// - Tester calendar sur un vrai device -> se connecter au compte apple developer avec redouane.amour@gmail.com (gratuit) et libérer l'espace en supprimant les anciennes applications.
 // - Unit tests du calendar (voir sur internet ou Mock).
 // - CI : créer un fichier .yml et y coller le code proposer par github action.
 // - GitHub : Security checks -> Dans l'onglet settings du repo, rentrer les régles de sécurité pour la branche main.
