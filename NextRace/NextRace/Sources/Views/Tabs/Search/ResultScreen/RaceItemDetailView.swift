@@ -19,7 +19,7 @@ struct RaceItemDetailView: View {
     var body: some View {
         NavigationStack {
             content()
-                .customNavigationBar(navigationTitle: Localizable.raceDetailScreenNavigatioTitle)
+                .customNavigationBar(navigationTitle: Localizable.raceDetailScreenNavigationTitle)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text(Localizable.backButtonTitle).opacity(0)
@@ -39,22 +39,17 @@ struct RaceItemDetailView: View {
         }
     }
 
+    @ViewBuilder
     private func mainImage() -> some View {
-        cachedImage(url: viewModel.race.imageURL)
+        if let url = viewModel.race.imageURL {
+            cachedImage(url: url)
+        }
     }
 
     private func raceInfo(race: Race) -> some View {
         VStack(alignment: .leading) {
-            HStack {
-                date()
-                Spacer()
-                Divider()
-                    .frame(width: 1)
-                    .background { Color.white }
-                Spacer()
-                price()
-            }
-            .padding(.bottom)
+            date()
+            price()
             raceway()
             seatmap()
             location()
@@ -65,22 +60,44 @@ struct RaceItemDetailView: View {
     @ViewBuilder
     private func date() -> some View {
         if let date = viewModel.race.date {
-            info(title: date.formatted(.dateTime.day().month(.wide)), subtitle: date.formatted(.dateTime.year()), systemName: "calendar")
-                .onTapGesture {
+            HStack {
+                resizableImage(systemName: "calendar")
+                Text(date.formatted(.dateTime.day().month(.wide).year()))
+                    .font(.custom(CustomFonts.body, size: 20))
+                    .foregroundStyle(Color.white)
+                Spacer()
+                Button {
                     viewModel.addRaceToCalendar()
+                } label: {
+                    Text(Localizable.scheduleButtonTitle)
                 }
+                .buttonStyle(.borderedProminent)
+            }
+            .alert(isPresented: $viewModel.showCalendarAlert) {
+                Alert(title: Text(viewModel.calendarAlertTitle), message: Text(viewModel.calendarAlertMessage))
+            }
         }
     }
 
     @ViewBuilder
     private func price() -> some View {
         if let price = viewModel.race.price {
-            info(title: "\(Int(price.min)) - \(Int(price.max))", subtitle: "\(price.currency)", systemName: "dollarsign.circle")
+            HStack {
+                resizableImage(systemName: "dollarsign.circle")
+                Text("\(Int(price.min)) - \(Int(price.max)) \(price.currency)")
+                    .font(.custom(CustomFonts.body, size: 20))
+                    .foregroundStyle(Color.white)
+            }
         }
     }
 
     private func raceway() -> some View {
-        info(title: viewModel.race.name, subtitle: viewModel.race.venue.name, systemName: "road.lanes.curved.left")
+        HStack {
+            resizableImage(systemName: "road.lanes.curved.left")
+            Text(viewModel.race.name)
+                .font(.custom(CustomFonts.body, size: 20))
+                .foregroundStyle(Color.white)
+        }
     }
 
     @ViewBuilder
@@ -90,20 +107,23 @@ struct RaceItemDetailView: View {
         }
     }
 
+    @ViewBuilder
     private func location() -> some View {
-        info(title: "\(viewModel.race.venue.country)", subtitle: "\(viewModel.race.venue.city) - \(viewModel.race.venue.address) - \(viewModel.race.venue.state) - \(viewModel.race.venue.postalCode)", systemName: "location")
-    }
-
-    private func info(title: String, subtitle: String, systemName: String) -> some View {
-        HStack {
-            resizableImage(systemName: systemName)
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.custom(CustomFonts.body, size: 20))
-                Text(subtitle)
-                    .font(.custom(CustomFonts.body, size: 15))
+        if let venue = viewModel.race.venue, let country = venue.country, let city = venue.city {
+            HStack {
+                resizableImage(systemName: "location")
+                VStack(alignment: .leading) {
+                    Text(country)
+                        .font(.custom(CustomFonts.body, size: 20))
+                        .foregroundStyle(Color.white)
+                    Text(city)
+                        .font(.custom(CustomFonts.body, size: 20))
+                        .foregroundStyle(Color.white)
+                    Text("\(venue.address ?? "") \(venue.postalCode ?? "") \(venue.state ?? "")")
+                        .font(.custom(CustomFonts.body, size: 15))
+                        .foregroundStyle(Color.white)
+                }
             }
-            .foregroundStyle(Color.white)
         }
     }
 
@@ -132,8 +152,12 @@ struct RaceItemDetailView: View {
 }
 
 private extension Localizable {
-    static let raceDetailScreenNavigatioTitle = NSLocalizedString(
+    static let raceDetailScreenNavigationTitle = NSLocalizedString(
         "race-detail.navigation-title",
+        comment: ""
+    )
+    static let scheduleButtonTitle = NSLocalizedString(
+        "race-detail.schedule-button.title",
         comment: ""
     )
 }

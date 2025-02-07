@@ -14,7 +14,7 @@ final class SearchViewModel: ObservableObject {
 
     @Published var searchResult: SearchResult?
 
-    @Published var selectedChampionship: Championship = .formula
+    @Published var selectedChampionship: Championship = .nascar
 
     @Published var searchInProgress = false
 
@@ -64,9 +64,9 @@ final class SearchViewModel: ObservableObject {
 }
 
 enum Championship: String, CaseIterable, Identifiable {
+    case nascar
     case formula
     case monster
-    case nascar
 
     var id: Self {
         return self

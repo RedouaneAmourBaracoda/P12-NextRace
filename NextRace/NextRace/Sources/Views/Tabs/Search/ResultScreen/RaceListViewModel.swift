@@ -59,6 +59,7 @@ final class RaceListViewModel: ObservableObject {
                 errorMessage = Localizable.undeterminedErrorDescription
             }
             shouldPresentAlert = true
+            searchInProgress = false
         }
     }
 }

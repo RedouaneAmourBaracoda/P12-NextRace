@@ -120,9 +120,11 @@ struct RaceItemView: View {
             Text(item.name)
                 .font(.custom(CustomFonts.body, size: 20.0))
                 .foregroundStyle((CustomColors.backgroundColor))
-            Text(item.venue.name)
-                .font(.custom(CustomFonts.body, size: 15.0))
-                .foregroundStyle(.secondary)
+            if let venue = item.venue {
+                Text(venue.name)
+                    .font(.custom(CustomFonts.body, size: 15.0))
+                    .foregroundStyle(.secondary)
+            }
         }
         .padding()
     }

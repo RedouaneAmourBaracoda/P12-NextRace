@@ -19,11 +19,11 @@ struct EmbeddedEvents: Codable, Equatable {
 struct Event: Codable, Equatable {
     let name: String
     let id: String
-    let images: [ImageContainer]
-    let dates: DateContainer
+    let images: [ImageContainer]?
+    let dates: DateContainer?
     let priceRanges: [PriceRanges]?
     let seatmap: SeatMap?
-    let _embedded: EmbeddedVenues
+    let _embedded: EmbeddedVenues?
 }
 
 struct PriceRanges: Codable, Equatable {
@@ -43,11 +43,11 @@ struct EmbeddedVenues: Codable, Equatable {
 struct Venue: Codable, Equatable {
     let name: String
     let id: String
-    let postalCode: String
-    let city: VenueCity
-    let state: VenueState
-    let country: VenueCountry
-    let address: VenueAddress
+    let postalCode: String?
+    let city: VenueCity?
+    let state: VenueState?
+    let country: VenueCountry?
+    let address: VenueAddress?
 }
 
 struct VenueCity: Codable, Equatable {

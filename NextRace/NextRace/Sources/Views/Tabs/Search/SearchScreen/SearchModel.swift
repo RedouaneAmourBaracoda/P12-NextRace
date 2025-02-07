@@ -15,19 +15,19 @@ struct SearchResult: Equatable {
 struct Race: Identifiable {
     let id: String
     let name: String
-    let imageURL: String
-    let venue: Venue
+    let imageURL: String?
+    let venue: Venue?
     let date: Date?
     let seatmapURL: String?
     let price: PriceRanges?
 
     struct Venue: Equatable {
         let name: String
-        let postalCode: String
-        let city: String
-        let state: String
-        let country: String
-        let address: String
+        let postalCode: String?
+        let city: String?
+        let state: String?
+        let country: String?
+        let address: String?
     }
 }
 

@@ -42,9 +42,10 @@ final class RaceListViewModelTests: XCTestCase {
 
         XCTAssertEqual(raceListViewModel.errorMessage, error?.userFriendlyDescription)
 
+        XCTAssertFalse(raceListViewModel.searchInProgress)
     }
 
-    func testGetRacesWhenAPIReturnsOtherError() async {
+    func testLoadMoreWhenAPIReturnsOtherError() async {
 
         // Given.
 
@@ -64,6 +65,8 @@ final class RaceListViewModelTests: XCTestCase {
         XCTAssertTrue(raceListViewModel.shouldPresentAlert)
 
         XCTAssertEqual(raceListViewModel.errorMessage, Localizable.undeterminedErrorDescription)
+
+        XCTAssertFalse(raceListViewModel.searchInProgress)
     }
 
     func testLoadMoreWhenOnlyOnePage() async {
@@ -77,7 +80,6 @@ final class RaceListViewModelTests: XCTestCase {
         // Then.
 
         XCTAssertFalse(raceListViewModel.showLoadMore)
-
     }
 
     func testLoadMoreWhenMoreThanOnePage() async {

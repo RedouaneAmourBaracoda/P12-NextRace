@@ -17,11 +17,11 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     // MARK: - Calendar
 
-    @Published var showAlert: Bool = false
+    @Published var showCalendarAlert: Bool = false
 
-    @Published var alertTitle: String = ""
+    @Published var calendarAlertTitle: String = ""
 
-    @Published var alertMessage: String = ""
+    @Published var calendarAlertMessage: String = ""
 
     // MARK: - Initialization
 
@@ -36,7 +36,7 @@ final class RaceItemDetailViewModel: ObservableObject {
 
         let eventName = race.name
 
-        let eventLocation = race.venue.name
+        let eventLocation = race.venue?.name ?? ""
 
         eventStore.requestWriteOnlyAccessToEvents() { [weak self] (granted, error) in
             if granted && error == nil {
@@ -44,22 +44,29 @@ final class RaceItemDetailViewModel: ObservableObject {
                 calendarEvent.title = eventName
                 calendarEvent.location = eventLocation
                 calendarEvent.startDate = saveDate
+                calendarEvent.endDate = saveDate.addingTimeInterval(3600 * 3)
                 calendarEvent.calendar = eventStore.defaultCalendarForNewEvents
 
                 do {
                     try eventStore.save(calendarEvent, span: .thisEvent)
-                    self?.alertTitle = Localizable.raceDetailScreenCalendarAlertTitle
-                    self?.alertMessage = Localizable.raceDetailScreenCalendarAlertMessage
-                    self?.showAlert = true
+                    DispatchQueue.main.async {
+                        self?.calendarAlertTitle = Localizable.raceDetailScreenCalendarAlertTitle
+                        self?.calendarAlertMessage = Localizable.raceDetailScreenCalendarAlertMessage
+                        self?.showCalendarAlert = true
+                    }
                 } catch {
-                    self?.alertTitle = Localizable.raceDetailScreenCalendarErrorAlertTitle
-                    self?.alertMessage = Localizable.raceDetailScreenCalendarErrorAlertMessage
-                    self?.showAlert = true
+                    DispatchQueue.main.async {
+                        self?.calendarAlertTitle = Localizable.raceDetailScreenCalendarErrorAlertTitle
+                        self?.calendarAlertMessage = Localizable.raceDetailScreenCalendarErrorAlertMessage
+                        self?.showCalendarAlert = true
+                    }
                 }
             } else {
-                self?.alertTitle = Localizable.raceDetailScreenCalendarErrorAlertTitle
-                self?.alertMessage = Localizable.raceDetailScreenCalendarAccessDeniedAlertMessage
-                self?.showAlert = true
+                DispatchQueue.main.async {
+                    self?.calendarAlertTitle = Localizable.raceDetailScreenCalendarErrorAlertTitle
+                    self?.calendarAlertMessage = Localizable.raceDetailScreenCalendarAccessDeniedAlertMessage
+                    self?.showCalendarAlert = true
+                }
             }
         }
     }
