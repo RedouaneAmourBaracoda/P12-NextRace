@@ -20,6 +20,9 @@ struct NextRaceApp: App {
             TabView {
                 SearchView()
                     .tabItem { Text(Localizable.searchTabBarItemTitle) }
+
+                FavoriteRacesListView()
+                    .tabItem { Text(Localizable.favoritesTabBarItemTitle) }
             }
             .onAppear { configureAppearance() }
         }
@@ -38,5 +41,9 @@ private extension Localizable {
     static let searchTabBarItemTitle = NSLocalizedString(
         "tabs.search.title",
         comment: ""
+    )
+    static let favoritesTabBarItemTitle = NSLocalizedString(
+         "tabs.favorites.title",
+         comment: ""
     )
 }

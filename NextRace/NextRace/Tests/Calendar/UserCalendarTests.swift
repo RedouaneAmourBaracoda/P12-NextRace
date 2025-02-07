@@ -94,8 +94,6 @@ final class UserCalendarTests: XCTestCase {
     func testFetchEventsWhenAccessRequestThrowsError() async throws {
         // Given.
 
-        let event: CalendarEvent = .random()
-
         let randomError = RandomError()
         store.requestFullAccessToEventsError = randomError
 

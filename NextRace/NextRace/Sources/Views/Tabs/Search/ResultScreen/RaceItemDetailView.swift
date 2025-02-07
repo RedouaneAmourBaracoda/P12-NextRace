@@ -24,9 +24,24 @@ struct RaceItemDetailView: View {
                     ToolbarItem(placement: .topBarLeading) {
                         Text(Localizable.backButtonTitle).opacity(0)
                     }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            viewModel.isFavorite ? viewModel.removeFromFavorites() : viewModel.addToFavorites()
+                        } label: {
+                            viewModel.isFavorite ? Image(systemName: "star.fill") : Image(systemName: "star")
+                        }
+                    }
+                }
+                .alert(isPresented: $viewModel.shouldPresentAlert) {
+                    Alert(title: Text(viewModel.alertTitle), message: Text(viewModel.alertMessage))
                 }
                 .background { CustomColors.backgroundColor.ignoresSafeArea() }
-                .onAppear { Task { await viewModel.updateCalendarStatus() } }
+                .onAppear {
+                    viewModel.refreshFavoriteState()
+                    Task { 
+                        await viewModel.updateCalendarStatus()
+                    }
+                }
         }
     }
 
@@ -81,9 +96,6 @@ struct RaceItemDetailView: View {
                     .buttonStyle(.borderedProminent)
                     .disabled(viewModel.scheduleInProgress)
                 }
-            }
-            .alert(isPresented: $viewModel.showCalendarAlert) {
-                Alert(title: Text(viewModel.calendarAlertTitle), message: Text(viewModel.calendarAlertMessage))
             }
         }
     }

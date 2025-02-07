@@ -15,25 +15,65 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     @Published var race: Race
 
-    // MARK: - Calendar
+    @Published var isFavorite: Bool = false
 
     @Published var scheduleInProgress: Bool = false
 
     @Published var isRaceScheduled: Bool = false
 
-    @Published var showCalendarAlert: Bool = false
+    @Published var shouldPresentAlert = false
 
-    @Published var calendarAlertTitle: String = ""
+    @Published var alertTitle: String = ""
 
-    @Published var calendarAlertMessage: String = ""
+    @Published var alertMessage: String = ""
 
-    let calendarService: CalendarService
+    // MARK: - Services
+
+    private let coreDataService: CoreDataService
+
+    private let calendarService: CalendarService
 
     // MARK: - Initialization
 
-    init(race: Race, calendarService: CalendarService = UserCalendar.shared) {
+    init(race: Race, calendarService: CalendarService = UserCalendar.shared, coreDataService: CoreDataService = CoreDataStack.shared) {
         self.race = race
         self.calendarService = calendarService
+        self.coreDataService = coreDataService
+    }
+
+    // MARK: - Methods
+
+    func addToFavorites() {
+        do {
+            try coreDataService.add(newRace: race)
+            isFavorite = true
+        } catch {
+            presentError()
+        }
+    }
+
+    func removeFromFavorites() {
+        do {
+            try coreDataService.remove(race: race)
+            isFavorite = false
+        } catch {
+            presentError()
+        }
+    }
+
+    func refreshFavoriteState() {
+        do {
+            let favoriteRaces = try coreDataService.fetch()
+            isFavorite = favoriteRaces.contains(race)
+        } catch {
+            presentError()
+        }
+    }
+
+    private func presentError() {
+        alertTitle = Localizable.errorAlertTitle
+        alertMessage = Localizable.persistenceErrorDescription
+        shouldPresentAlert = true
     }
 
     func addRaceToCalendar() async {
@@ -51,20 +91,20 @@ final class RaceItemDetailViewModel: ObservableObject {
             )
             if isEventAdded {
                 isRaceScheduled = true
-                calendarAlertTitle = Localizable.calendarSaveSuccessAlertTitle
-                calendarAlertMessage = Localizable.calendarSaveSuccessAlertMessage
-                showCalendarAlert = true
+                alertTitle = Localizable.calendarSaveSuccessAlertTitle
+                alertMessage = Localizable.calendarSaveSuccessAlertMessage
+                shouldPresentAlert = true
                 scheduleInProgress = false
             } else {
-                calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
-                calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
-                showCalendarAlert = true
+                alertTitle = Localizable.calendarUpdateErrorAlertTitle
+                alertMessage = Localizable.calendarSaveErrorAlertMessage
+                shouldPresentAlert = true
                 scheduleInProgress = false
             }
         } catch {
-            calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
-            calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
-            showCalendarAlert = true
+            alertTitle = Localizable.calendarUpdateErrorAlertTitle
+            alertMessage = Localizable.calendarSaveErrorAlertMessage
+            shouldPresentAlert = true
             scheduleInProgress = false
         }
     }
@@ -84,9 +124,9 @@ final class RaceItemDetailViewModel: ObservableObject {
                 && $0.location == race.venue?.name
             })
         } catch {
-            calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
-            calendarAlertMessage = Localizable.calendarUpdateErrorAlertMessage
-            showCalendarAlert = true
+            alertTitle = Localizable.calendarUpdateErrorAlertTitle
+            alertMessage = Localizable.calendarUpdateErrorAlertMessage
+            shouldPresentAlert = true
         }
     }
 }
