@@ -1,5 +1,5 @@
 //
-//  CalendarService.swift
+//  UserCalendar.swift
 //  NextRace
 //
 //  Created by Redouane on 07/02/2025.
@@ -9,16 +9,23 @@ import EventKit
 import Foundation
 
 protocol CalendarService {
-    func addEvent(calendarEvent: CalendarEvent) async throws
+    func addEvent(calendarEvent: CalendarEvent) async throws -> Bool
 
     func fetchEvents(from startDate: Date, to endDate: Date) async throws -> [CalendarEvent]
 }
 
-struct UserCalendar: CalendarService {
-    func addEvent(calendarEvent: CalendarEvent) async throws {
-        let eventStore = EKEventStore()
+final class UserCalendar: CalendarService {
+    let eventStore: EKEventStore
 
-        try await eventStore.requestFullAccessToEvents()
+    static let shared = UserCalendar()
+
+    init(eventStore: EKEventStore = EKEventStore()) {
+        self.eventStore = eventStore
+    }
+
+    func addEvent(calendarEvent: CalendarEvent) async throws -> Bool {
+
+        guard try await eventStore.requestFullAccessToEvents() else { return false }
 
         let ekEvent = EKEvent(eventStore: eventStore)
 
@@ -33,12 +40,13 @@ struct UserCalendar: CalendarService {
         ekEvent.calendar = eventStore.defaultCalendarForNewEvents
 
         try eventStore.save(ekEvent, span: .thisEvent)
+
+        return true
     }
 
     func fetchEvents(from startDate: Date, to endDate: Date) async throws -> [CalendarEvent] {
-        let eventStore = EKEventStore()
 
-        try await eventStore.requestFullAccessToEvents()
+        guard try await eventStore.requestFullAccessToEvents() else { return [] }
 
         let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
 
@@ -46,7 +54,7 @@ struct UserCalendar: CalendarService {
     }
 }
 
-private extension EKEvent {
+extension EKEvent {
     var toCalendarEvent: CalendarEvent {
         .init(
             title: title,
@@ -56,7 +64,7 @@ private extension EKEvent {
     }
 }
 
-struct CalendarEvent {
+struct CalendarEvent: Equatable {
     let title: String
     let location: String?
     let date: Date

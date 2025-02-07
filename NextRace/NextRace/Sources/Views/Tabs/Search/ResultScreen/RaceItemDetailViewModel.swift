@@ -31,7 +31,7 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(race: Race, calendarService: CalendarService = UserCalendar()) {
+    init(race: Race, calendarService: CalendarService = UserCalendar.shared) {
         self.race = race
         self.calendarService = calendarService
     }
@@ -42,18 +42,25 @@ final class RaceItemDetailViewModel: ObservableObject {
         scheduleInProgress = true
 
         do {
-            try await calendarService.addEvent(
+            let isEventAdded = try await calendarService.addEvent(
                 calendarEvent: .init(
                     title: race.name,
                     location: race.venue?.name,
                     date: date
                 )
             )
-            isRaceScheduled = true
-            calendarAlertTitle = Localizable.calendarSaveSuccessAlertTitle
-            calendarAlertMessage = Localizable.calendarSaveSuccessAlertMessage
-            showCalendarAlert = true
-            scheduleInProgress = false
+            if isEventAdded {
+                isRaceScheduled = true
+                calendarAlertTitle = Localizable.calendarSaveSuccessAlertTitle
+                calendarAlertMessage = Localizable.calendarSaveSuccessAlertMessage
+                showCalendarAlert = true
+                scheduleInProgress = false
+            } else {
+                calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
+                calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
+                showCalendarAlert = true
+                scheduleInProgress = false
+            }
         } catch {
             calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
             calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
