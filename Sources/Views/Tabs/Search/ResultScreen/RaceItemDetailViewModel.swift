@@ -35,7 +35,11 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(race: Race, calendarService: CalendarService = UserCalendar.shared, coreDataService: CoreDataService = CoreDataStack.shared) {
+    init(
+        race: Race,
+        calendarService: CalendarService = UserCalendar.shared,
+        coreDataService: CoreDataService = CoreDataStack.shared
+    ) {
         self.race = race
         self.calendarService = calendarService
         self.coreDataService = coreDataService

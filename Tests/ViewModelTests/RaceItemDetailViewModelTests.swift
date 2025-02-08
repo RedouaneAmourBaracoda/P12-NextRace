@@ -23,7 +23,11 @@ final class RaceItemDetailViewModelTests: XCTestCase {
 
         calendarService = CalendarServiceMock()
 
-        raceItemDetailViewModel = .init(race: .random(), calendarService: calendarService, coreDataService: coreDataService)
+        raceItemDetailViewModel = .init(
+            race: .random(),
+            calendarService: calendarService,
+            coreDataService: coreDataService
+        )
     }
 
     func testAddToFavoritesFails() {
@@ -322,7 +326,21 @@ final class RaceItemDetailViewModelTests: XCTestCase {
 
         let date: Date = .random()
 
-        raceItemDetailViewModel.race = .init(id: .random(), name: title, imageURL: .random(), venue: .init(name: location, postalCode: .random(), city: .random(), state: .random(), country: .random(), address: .random()), date: date, seatmapURL: .random(), price: nil)
+        raceItemDetailViewModel.race = .init(
+            id: .random(),
+            name: title,
+            imageURL: .random(),
+            venue: .init(
+                name: location,
+                postalCode: .random(),
+                city: .random(),
+                state: .random(),
+                country: .random(),
+                address: .random()),
+            date: date,
+            seatmapURL: .random(),
+            price: nil
+        )
 
         let event: CalendarEvent = .init(title: title, location: location, date: date)
 

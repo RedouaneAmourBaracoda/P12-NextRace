@@ -19,9 +19,14 @@ final class RaceListViewModelTests: XCTestCase {
 
         raceAPIService = MockRaceAPIService()
 
-        raceListViewModel = .init(selectedChampionship: .allCases.randomElement() ?? .nascar, searchResult: .init(page: .random(), races: .random()), raceAPIService: raceAPIService)
+        raceListViewModel = .init(
+            selectedChampionship: .allCases.randomElement() ?? .nascar,
+            searchResult: .init(page: .random(), races: .random()),
+            raceAPIService: raceAPIService
+        )
     }
 
+    // swiftlint:disable inclusive_language
     func testLoadMoreWhenTicketMasterAPIReturnsError() async {
 
         // Given.
@@ -44,6 +49,7 @@ final class RaceListViewModelTests: XCTestCase {
 
         XCTAssertFalse(raceListViewModel.searchInProgress)
     }
+    // swiftlint:enable inclusive_language
 
     func testLoadMoreWhenAPIReturnsOtherError() async {
 

@@ -45,6 +45,7 @@ final class SearchViewModelTests: XCTestCase {
         XCTAssertFalse(searchViewModel.searchInProgress)
     }
 
+    // swiftlint:disable inclusive_language
     func testGetRacesWhenTicketMasterAPIReturnsError() async {
 
         // Given.
@@ -71,6 +72,7 @@ final class SearchViewModelTests: XCTestCase {
 
         XCTAssertFalse(searchViewModel.searchInProgress)
     }
+    // swiftlint:enable inclusive_language
 
     func testGetRacesWhenAPIReturnsOtherError() async {
 
@@ -193,4 +195,3 @@ extension String {
 
     private static let letters = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 }
-

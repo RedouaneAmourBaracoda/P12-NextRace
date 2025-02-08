@@ -38,7 +38,7 @@ struct RaceItemDetailView: View {
                 .background { CustomColors.backgroundColor.ignoresSafeArea() }
                 .onAppear {
                     viewModel.refreshFavoriteState()
-                    Task { 
+                    Task {
                         await viewModel.updateCalendarStatus()
                     }
                 }

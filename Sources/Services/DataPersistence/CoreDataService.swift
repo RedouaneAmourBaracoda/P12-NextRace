@@ -69,12 +69,12 @@ final class CoreDataStack: CoreDataService {
                 return nil
             }
 
-            var venue: Race.Venue? = nil
+            var venue: Race.Venue?
             if let venueData = $0.venue {
                 venue = try JSONDecoder().decode(Race.Venue.self, from: venueData)
             }
 
-            var price: PriceRanges? = nil
+            var price: PriceRanges?
             if let priceData = $0.price {
                 price = try JSONDecoder().decode(PriceRanges.self, from: priceData)
             }

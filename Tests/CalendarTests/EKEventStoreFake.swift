@@ -14,7 +14,12 @@ final class EKEventStoreFake: EKEventStore {
     var requestFullAccessToEventsError: Error?
     var saveEventsError: Error?
 
-    init(accessIsGranted: Bool = false, savedEvents: [EKEvent] = [], requestFullAccessToEventsError: Error? = nil, saveEventsError: Error? = nil) {
+    init(
+        accessIsGranted: Bool = false,
+        savedEvents: [EKEvent] = [],
+        requestFullAccessToEventsError: Error? = nil,
+        saveEventsError: Error? = nil
+    ) {
         self.accessIsGranted = accessIsGranted
         self.savedEvents = savedEvents
         self.requestFullAccessToEventsError = requestFullAccessToEventsError

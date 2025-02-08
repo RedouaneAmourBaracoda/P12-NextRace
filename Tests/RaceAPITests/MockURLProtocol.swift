@@ -37,4 +37,3 @@ final class MockURLProtocol: URLProtocol {
 
     static func stopInterceptingRequests() { URLProtocol.unregisterClass(MockURLProtocol.self) }
 }
-

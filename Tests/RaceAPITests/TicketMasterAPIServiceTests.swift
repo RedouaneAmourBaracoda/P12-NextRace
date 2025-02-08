@@ -8,6 +8,7 @@
 import XCTest
 @testable import NextRace
 
+// swiftlint:disable inclusive_language
 final class TicketMasterAPIServiceTests: XCTestCase {
 
     var raceAPIService: TicketMasterAPIService!
@@ -49,6 +50,7 @@ final class TicketMasterAPIServiceTests: XCTestCase {
         )
     }
 
+    // swiftlint:disable line_length
     // swiftlint:disable:next function_body_length
     func testNetworkCallSuccess() async throws {
 
@@ -188,8 +190,13 @@ final class TicketMasterAPIServiceTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
+    // swiftlint:enable line_length
 
-    private func testTicketMasterAPIError(data: Data = Data(), statusCode: Int, testedError: TicketMasterAPIError) async throws {
+    private func testTicketMasterAPIError(
+        data: Data = Data(),
+        statusCode: Int,
+        testedError: TicketMasterAPIError
+    ) async throws {
 
         MockURLProtocol.requestHandler = { request in
             XCTAssertNotNil(request.url)
@@ -215,3 +222,4 @@ final class TicketMasterAPIServiceTests: XCTestCase {
         }
     }
 }
+// swiftlint:enable inclusive_language

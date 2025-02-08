@@ -29,7 +29,7 @@ final class UserCalendarTests: XCTestCase {
 
         let event: CalendarEvent = .random()
 
-        do { 
+        do {
             // When.
             _ = try await userCalendar.addEvent(calendarEvent: event)
         } catch let error as RandomError {
@@ -174,13 +174,13 @@ extension CalendarEvent {
 
 struct RandomError: LocalizedError, Equatable {
     var title: String?
-    var errorDescription: String? { return _description }
-    var failureReason: String? { return _description }
+    var errorDescription: String? { return description }
+    var failureReason: String? { return description }
 
-    private var _description: String
+    private var description: String
 
-    init(title: String? = nil, _description: String = "") {
+    init(title: String? = nil, description: String = "") {
         self.title = title
-        self._description = _description
+        self.description = description
     }
 }

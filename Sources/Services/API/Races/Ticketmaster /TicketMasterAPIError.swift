@@ -13,6 +13,7 @@ protocol RaceAPIError: LocalizedError, CaseIterable {
     var userFriendlyDescription: String { get }
 }
 
+// swiftlint:disable inclusive_language
 enum TicketMasterAPIError: RaceAPIError {
     case invalidURL
     case badRequest
@@ -126,3 +127,4 @@ private extension Localizable {
         comment: ""
     )
 }
+// swiftlint:enable inclusive_language

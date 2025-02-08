@@ -11,6 +11,7 @@ protocol RaceAPIService {
     func fetchRaces(for championship: String, at page: Int) async throws -> SearchResult
 }
 
+// swiftlint:disable inclusive_language
 struct TicketMasterAPIService: RaceAPIService {
 
     // MARK: - API infos.
@@ -27,7 +28,11 @@ struct TicketMasterAPIService: RaceAPIService {
 
         static let sortDate = "date,asc"
 
-        static let url = ressource + "apikey=" + apikey + "&locale=" + locale + "&genreId=" + raceEventGenreId + "&sort=" + sortDate
+        static let url = ressource
+        + "apikey=" + apikey
+        + "&locale=" + locale
+        + "&genreId=" + raceEventGenreId
+        + "&sort=" + sortDate
     }
 
     // MARK: - Properties.
@@ -44,7 +49,8 @@ struct TicketMasterAPIService: RaceAPIService {
 
     func fetchRaces(for championship: String = "", at page: Int = Int()) async throws -> SearchResult {
 
-        guard let url = URL(string: APIInfos.url + "&keyword=" + championship + "&page=" + String(page)) else { throw TicketMasterAPIError.invalidURL }
+        guard let url = URL(string: APIInfos.url + "&keyword=" + championship + "&page=" + String(page))
+        else { throw TicketMasterAPIError.invalidURL }
 
         let request = URLRequest(url: url)
 
@@ -63,4 +69,4 @@ struct TicketMasterAPIService: RaceAPIService {
         }
     }
 }
-
+// swiftlint:enable inclusive_language

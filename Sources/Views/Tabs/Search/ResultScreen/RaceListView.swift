@@ -141,7 +141,7 @@ struct RaceItemView: View {
 extension SearchResult {
     static let forPreview: SearchResult = .init(
         page: .init(
-            size:2 ,
+            size: 2,
             totalElements: 2,
             totalPages: 1,
             number: 0
@@ -165,6 +165,7 @@ extension Localizable {
     )
 }
 
+// swiftlint:disable line_length
 extension Race {
     static let nascarCupSeries = Race(
         id: UUID().uuidString,
@@ -208,6 +209,7 @@ extension Race {
         )
     )
 }
+// swiftlint:enable line_length
 
 #Preview {
     RaceListView(viewModel: .init(selectedChampionship: .nascar, searchResult: .forPreview))

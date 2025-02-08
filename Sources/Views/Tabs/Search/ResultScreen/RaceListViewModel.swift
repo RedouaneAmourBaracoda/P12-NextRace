@@ -34,7 +34,11 @@ final class RaceListViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(selectedChampionship: Championship, searchResult: SearchResult, raceAPIService: RaceAPIService = TicketMasterAPIService()) {
+    init(
+        selectedChampionship: Championship,
+        searchResult: SearchResult,
+        raceAPIService: RaceAPIService = TicketMasterAPIService()
+    ) {
         self.selectedChampionship = selectedChampionship
         self.currentPage = searchResult.page.number
         self.totalPages = searchResult.page.totalPages
@@ -46,7 +50,10 @@ final class RaceListViewModel: ObservableObject {
         searchInProgress = true
 
         do {
-            let newSearchResult = try await raceAPIService.fetchRaces(for: selectedChampionship.rawValue, at: currentPage + 1)
+            let newSearchResult = try await raceAPIService.fetchRaces(
+                for: selectedChampionship.rawValue,
+                at: currentPage + 1
+            )
             currentPage = newSearchResult.page.number
             totalPages = newSearchResult.page.totalPages
             newSearchResult.races.forEach { races.append($0) }

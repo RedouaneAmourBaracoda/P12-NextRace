@@ -29,7 +29,12 @@ struct SearchView: View {
             searchActionView()
                 .navigationDestination(isPresented: $viewModel.showRaces) {
                     if let searchResult = viewModel.searchResult {
-                        RaceListView(viewModel: .init(selectedChampionship: viewModel.selectedChampionship, searchResult: searchResult))
+                        RaceListView(
+                            viewModel: .init(
+                                selectedChampionship: viewModel.selectedChampionship,
+                                searchResult: searchResult
+                            )
+                        )
                     }
                 }
         }
