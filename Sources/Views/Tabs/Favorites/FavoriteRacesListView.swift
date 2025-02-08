@@ -17,7 +17,10 @@ struct FavoriteRacesListView: View {
                 .alert(isPresented: $viewModel.shouldPresentAlert) {
                     Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
                 }
-                .onAppear { viewModel.refreshRaces() }
+                .onAppear {
+                    viewModel.refreshRaces()
+                    viewModel.sendScreenEventAnalytics()
+                }
         }
     }
 

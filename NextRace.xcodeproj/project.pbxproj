@@ -45,6 +45,10 @@
 		B8FE32342D56521200B46806 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32332D56521200B46806 /* CoreDataStackTests.swift */; };
 		B8FE32362D56528B00B46806 /* RaceItemDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */; };
 		B8FE32392D56558B00B46806 /* CalendarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */; };
+		B8FE323C2D57BAB400B46806 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8FE323B2D57BAB400B46806 /* GoogleService-Info.plist */; };
+		B8FE323F2D57BBC000B46806 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B8FE323E2D57BBC000B46806 /* FirebaseAnalytics */; };
+		B8FE32412D57BBC000B46806 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B8FE32402D57BBC000B46806 /* FirebaseCrashlytics */; };
+		B8FE32442D57BD7100B46806 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32432D57BD7100B46806 /* Analytics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +102,8 @@
 		B8FE32332D56521200B46806 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
 		B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailViewModelTests.swift; sourceTree = "<group>"; };
 		B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceMock.swift; sourceTree = "<group>"; };
+		B8FE323B2D57BAB400B46806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B8FE32432D57BD7100B46806 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8FE32412D57BBC000B46806 /* FirebaseCrashlytics in Frameworks */,
+				B8FE323F2D57BBC000B46806 /* FirebaseAnalytics in Frameworks */,
 				B8AE75D52D51EEED00EEF1D8 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +200,7 @@
 		B8AE75872D4CA75E00EEF1D8 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				B8FE323B2D57BAB400B46806 /* GoogleService-Info.plist */,
 				B8AE75862D4CA30800EEF1D8 /* NextRace-Info.plist */,
 				B85CA4522D555C44004A46D3 /* PrivacyInfo.xcprivacy */,
 			);
@@ -244,6 +253,7 @@
 		B8AE759F2D4DFB3E00EEF1D8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B8FE32422D57BD6200B46806 /* Analytics */,
 				B8FE32212D56432D00B46806 /* DataPersistence */,
 				B8AE75A02D4DFB4E00EEF1D8 /* API */,
 				B85CA4542D55C7A9004A46D3 /* UserCalendar.swift */,
@@ -349,6 +359,14 @@
 			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
+		B8FE32422D57BD6200B46806 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				B8FE32432D57BD7100B46806 /* Analytics.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -368,6 +386,8 @@
 			name = NextRace;
 			packageProductDependencies = (
 				B8AE75D42D51EEED00EEF1D8 /* Kingfisher */,
+				B8FE323E2D57BBC000B46806 /* FirebaseAnalytics */,
+				B8FE32402D57BBC000B46806 /* FirebaseCrashlytics */,
 			);
 			productName = NextRace;
 			productReference = B8AE75582D4C9D7900EEF1D8 /* NextRace.app */;
@@ -423,6 +443,7 @@
 			mainGroup = B8AE754F2D4C9D7900EEF1D8;
 			packageReferences = (
 				B8AE75D32D51EEED00EEF1D8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B8FE323D2D57BBC000B46806 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B8AE75592D4C9D7900EEF1D8 /* Products */;
 			projectDirPath = "";
@@ -444,6 +465,7 @@
 				B8AE75982D4CC0A200EEF1D8 /* Localizable.xcstrings in Resources */,
 				B85CA4532D555C44004A46D3 /* PrivacyInfo.xcprivacy in Resources */,
 				B8AE75962D4CBED100EEF1D8 /* FugazOne-Regular.ttf in Resources */,
+				B8FE323C2D57BAB400B46806 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +507,7 @@
 			files = (
 				B8AE75922D4CB75B00EEF1D8 /* Resources.swift in Sources */,
 				B8FE322D2D564A0D00B46806 /* FavoriteRacesListViewModel.swift in Sources */,
+				B8FE32442D57BD7100B46806 /* Analytics.swift in Sources */,
 				B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */,
 				B8AE758B2D4CB01D00EEF1D8 /* SearchView.swift in Sources */,
 				B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */,
@@ -799,6 +822,14 @@
 				minimumVersion = 8.1.4;
 			};
 		};
+		B8FE323D2D57BBC000B46806 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -806,6 +837,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B8AE75D32D51EEED00EEF1D8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		B8FE323E2D57BBC000B46806 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8FE323D2D57BBC000B46806 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B8FE32402D57BBC000B46806 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8FE323D2D57BBC000B46806 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 

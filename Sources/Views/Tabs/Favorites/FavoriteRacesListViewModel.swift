@@ -5,6 +5,7 @@
 //  Created by Redouane on 06/02/2025.
 //
 
+import Firebase
 import SwiftUI
 
 final class FavoriteRacesListViewModel: ObservableObject {
@@ -21,10 +22,13 @@ final class FavoriteRacesListViewModel: ObservableObject {
 
     private let coreDataService: CoreDataService
 
+    private let analyticsService: AnalyticsService
+
     // MARK: - Initialization
 
-    init(coreDataService: CoreDataService = CoreDataStack.shared) {
+    init(coreDataService: CoreDataService = CoreDataStack.shared, analyticsService: AnalyticsService = .shared) {
         self.coreDataService = coreDataService
+        self.analyticsService = analyticsService
     }
 
     // MARK: - Methods
@@ -36,5 +40,12 @@ final class FavoriteRacesListViewModel: ObservableObject {
             errorMessage = Localizable.persistenceErrorDescription
             shouldPresentAlert = true
         }
+    }
+
+    func sendScreenEventAnalytics() {
+        analyticsService.logEvent(
+            title: AnalyticsEventScreenView,
+            parameters: ["Favorite_Races_Total": favoriteRaces.count]
+        )
     }
 }

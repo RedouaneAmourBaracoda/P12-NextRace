@@ -28,10 +28,13 @@ final class SearchViewModel: ObservableObject {
 
     private let raceAPIService: RaceAPIService
 
+    private let analyticsService: AnalyticsService
+
     // MARK: - Initialization
 
-    init(raceAPIService: RaceAPIService = TicketMasterAPIService()) {
+    init(raceAPIService: RaceAPIService = TicketMasterAPIService(), analyticsService: AnalyticsService = .shared) {
         self.raceAPIService = raceAPIService
+        self.analyticsService = analyticsService
     }
 
     // MARK: - Methods
@@ -44,6 +47,10 @@ final class SearchViewModel: ObservableObject {
             searchResult = try await raceAPIService.fetchRaces(for: selectedChampionship.rawValue, at: 0)
             searchInProgress = false
             showRaces = true
+            sendAnalytics(
+                title: "press_search_button",
+                parameters: [Localizable.carSelectionTitle: selectedChampionship.rawValue]
+            )
         } catch {
             if let raceAPIError = error as? (any RaceAPIError) {
                 NSLog(raceAPIError.errorDescription ?? Localizable.undeterminedErrorDescription)
@@ -60,6 +67,10 @@ final class SearchViewModel: ObservableObject {
         searchInProgress = false
         showRaces = false
         searchResult = nil
+    }
+
+    func sendAnalytics(title: String, parameters: [String: Any]?) {
+        analyticsService.logEvent(title: title, parameters: parameters)
     }
 }
 

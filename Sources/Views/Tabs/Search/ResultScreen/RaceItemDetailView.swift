@@ -178,7 +178,7 @@ struct RaceItemDetailView: View {
     }
 }
 
-private extension Localizable {
+extension Localizable {
     static let raceDetailScreenNavigationTitle = NSLocalizedString(
         "race-detail.navigation-title",
         comment: ""

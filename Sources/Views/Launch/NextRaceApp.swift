@@ -5,15 +5,22 @@
 //  Created by Redouane on 31/01/2025.
 //
 
+import FirebaseCore
 import SwiftUI
 
-// A faire :
-// - CI : créer un fichier .yml et y coller le code proposer par github action.
-// - GitHub : Security checks -> Dans l'onglet settings du repo, rentrer les régles de sécurité pour la branche main.
-// - CoreData Ajouter l'optionel sur les champs qui le sont (Price, Date)
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
+}
 
 @main
 struct NextRaceApp: App {
+    // register app delegate for Firebase setup
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     var body: some Scene {
         WindowGroup {
             TabView {

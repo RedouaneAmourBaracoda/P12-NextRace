@@ -33,16 +33,20 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     private let calendarService: CalendarService
 
+    private let analyticsService: AnalyticsService
+
     // MARK: - Initialization
 
     init(
         race: Race,
         calendarService: CalendarService = UserCalendar.shared,
-        coreDataService: CoreDataService = CoreDataStack.shared
+        coreDataService: CoreDataService = CoreDataStack.shared,
+        analyticsService: AnalyticsService = .shared
     ) {
         self.race = race
         self.calendarService = calendarService
         self.coreDataService = coreDataService
+        self.analyticsService = analyticsService
     }
 
     // MARK: - Methods
@@ -99,6 +103,7 @@ final class RaceItemDetailViewModel: ObservableObject {
                 alertMessage = Localizable.calendarSaveSuccessAlertMessage
                 shouldPresentAlert = true
                 scheduleInProgress = false
+                sendAnalytics(title: "press_agenda", parameters: [race.name: race.date ?? ""])
             } else {
                 alertTitle = Localizable.calendarUpdateErrorAlertTitle
                 alertMessage = Localizable.calendarSaveErrorAlertMessage
@@ -136,6 +141,10 @@ final class RaceItemDetailViewModel: ObservableObject {
             scheduleInProgress = false
             shouldPresentAlert = true
         }
+    }
+
+    func sendAnalytics(title: String, parameters: [String: Any]?) {
+        analyticsService.logEvent(title: title, parameters: parameters)
     }
 }
 
