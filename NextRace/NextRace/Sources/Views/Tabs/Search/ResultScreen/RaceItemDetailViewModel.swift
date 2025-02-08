@@ -15,25 +15,65 @@ final class RaceItemDetailViewModel: ObservableObject {
 
     @Published var race: Race
 
-    // MARK: - Calendar
+    @Published var isFavorite: Bool = false
 
     @Published var scheduleInProgress: Bool = false
 
     @Published var isRaceScheduled: Bool = false
 
-    @Published var showCalendarAlert: Bool = false
+    @Published var shouldPresentAlert = false
 
-    @Published var calendarAlertTitle: String = ""
+    @Published var alertTitle: String = ""
 
-    @Published var calendarAlertMessage: String = ""
+    @Published var alertMessage: String = ""
 
-    let calendarService: CalendarService
+    // MARK: - Services
+
+    private let coreDataService: CoreDataService
+
+    private let calendarService: CalendarService
 
     // MARK: - Initialization
 
-    init(race: Race, calendarService: CalendarService = UserCalendar.shared) {
+    init(race: Race, calendarService: CalendarService = UserCalendar.shared, coreDataService: CoreDataService = CoreDataStack.shared) {
         self.race = race
         self.calendarService = calendarService
+        self.coreDataService = coreDataService
+    }
+
+    // MARK: - Methods
+
+    func addToFavorites() {
+        do {
+            try coreDataService.add(newRace: race)
+            isFavorite = true
+        } catch {
+            presentError()
+        }
+    }
+
+    func removeFromFavorites() {
+        do {
+            try coreDataService.remove(race: race)
+            isFavorite = false
+        } catch {
+            presentError()
+        }
+    }
+
+    func refreshFavoriteState() {
+        do {
+            let favoriteRaces = try coreDataService.fetch()
+            isFavorite = favoriteRaces.contains(race)
+        } catch {
+            presentError()
+        }
+    }
+
+    private func presentError() {
+        alertTitle = Localizable.errorAlertTitle
+        alertMessage = Localizable.persistenceErrorDescription
+        shouldPresentAlert = true
     }
 
     func addRaceToCalendar() async {
@@ -51,20 +91,20 @@ final class RaceItemDetailViewModel: ObservableObject {
             )
             if isEventAdded {
                 isRaceScheduled = true
-                calendarAlertTitle = Localizable.calendarSaveSuccessAlertTitle
-                calendarAlertMessage = Localizable.calendarSaveSuccessAlertMessage
-                showCalendarAlert = true
+                alertTitle = Localizable.calendarSaveSuccessAlertTitle
+                alertMessage = Localizable.calendarSaveSuccessAlertMessage
+                shouldPresentAlert = true
                 scheduleInProgress = false
             } else {
-                calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
-                calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
-                showCalendarAlert = true
+                alertTitle = Localizable.calendarUpdateErrorAlertTitle
+                alertMessage = Localizable.calendarSaveErrorAlertMessage
+                shouldPresentAlert = true
                 scheduleInProgress = false
             }
         } catch {
-            calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
-            calendarAlertMessage = Localizable.calendarSaveErrorAlertMessage
-            showCalendarAlert = true
+            alertTitle = Localizable.calendarUpdateErrorAlertTitle
+            alertMessage = Localizable.calendarSaveErrorAlertMessage
+            shouldPresentAlert = true
             scheduleInProgress = false
         }
     }
@@ -76,6 +116,8 @@ final class RaceItemDetailViewModel: ObservableObject {
             let endDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
         else { return }
 
+        scheduleInProgress = true
+
         do {
             let scheduledEvents = try await calendarService.fetchEvents(from: startDate, to: endDate)
             isRaceScheduled = scheduledEvents.contains(where: {
@@ -83,15 +125,17 @@ final class RaceItemDetailViewModel: ObservableObject {
                 && $0.date == date
                 && $0.location == race.venue?.name
             })
+            scheduleInProgress = false
         } catch {
-            calendarAlertTitle = Localizable.calendarUpdateErrorAlertTitle
-            calendarAlertMessage = Localizable.calendarUpdateErrorAlertMessage
-            showCalendarAlert = true
+            alertTitle = Localizable.calendarUpdateErrorAlertTitle
+            alertMessage = Localizable.calendarUpdateErrorAlertMessage
+            scheduleInProgress = false
+            shouldPresentAlert = true
         }
     }
 }
 
-private extension Localizable {
+extension Localizable {
     static let calendarSaveSuccessAlertTitle = NSLocalizedString(
         "race-detail.calendar.save-succes-alert.title",
         comment: ""

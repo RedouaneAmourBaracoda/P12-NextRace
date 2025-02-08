@@ -28,13 +28,23 @@
 		B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75A92D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift */; };
 		B8AE75BC2D4F8AC100EEF1D8 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */; };
 		B8AE75BE2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */; };
-		B8AE75C02D4FE9E500EEF1D8 /* MockRecipeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */; };
+		B8AE75C02D4FE9E500EEF1D8 /* MockRaceAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75BF2D4FE9E500EEF1D8 /* MockRaceAPIService.swift */; };
 		B8AE75C22D4FEA6D00EEF1D8 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */; };
 		B8AE75C62D515E1500EEF1D8 /* RaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C52D515E1500EEF1D8 /* RaceListView.swift */; };
 		B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75C72D515E7900EEF1D8 /* RaceListViewModel.swift */; };
 		B8AE75D02D51EA9B00EEF1D8 /* RaceItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75CF2D51EA9B00EEF1D8 /* RaceItemDetailView.swift */; };
 		B8AE75D22D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE75D12D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift */; };
 		B8AE75D52D51EEED00EEF1D8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B8AE75D42D51EEED00EEF1D8 /* Kingfisher */; };
+		B8FE32242D56437D00B46806 /* FavoriteRaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32222D56437D00B46806 /* FavoriteRaces.xcdatamodeld */; };
+		B8FE32262D5644A000B46806 /* FavoriteRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32252D5644A000B46806 /* FavoriteRace.swift */; };
+		B8FE32282D5644DB00B46806 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32272D5644DB00B46806 /* CoreDataService.swift */; };
+		B8FE322B2D5649D300B46806 /* FavoriteRacesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE322A2D5649D300B46806 /* FavoriteRacesListView.swift */; };
+		B8FE322D2D564A0D00B46806 /* FavoriteRacesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE322C2D564A0D00B46806 /* FavoriteRacesListViewModel.swift */; };
+		B8FE32302D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE322F2D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift */; };
+		B8FE32322D5651D800B46806 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32312D5651D800B46806 /* CoreDataStackMock.swift */; };
+		B8FE32342D56521200B46806 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32332D56521200B46806 /* CoreDataStackTests.swift */; };
+		B8FE32362D56528B00B46806 /* RaceItemDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */; };
+		B8FE32392D56558B00B46806 /* CalendarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,12 +82,22 @@
 		B8AE75A92D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterAPIError.swift; sourceTree = "<group>"; };
 		B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketMasterAPIServiceTests.swift; sourceTree = "<group>"; };
-		B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipeAPIService.swift; sourceTree = "<group>"; };
+		B8AE75BF2D4FE9E500EEF1D8 /* MockRaceAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRaceAPIService.swift; sourceTree = "<group>"; };
 		B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		B8AE75C52D515E1500EEF1D8 /* RaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListView.swift; sourceTree = "<group>"; };
 		B8AE75C72D515E7900EEF1D8 /* RaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListViewModel.swift; sourceTree = "<group>"; };
 		B8AE75CF2D51EA9B00EEF1D8 /* RaceItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailView.swift; sourceTree = "<group>"; };
 		B8AE75D12D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailViewModel.swift; sourceTree = "<group>"; };
+		B8FE32232D56437D00B46806 /* FavoriteRaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteRaces.xcdatamodel; sourceTree = "<group>"; };
+		B8FE32252D5644A000B46806 /* FavoriteRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRace.swift; sourceTree = "<group>"; };
+		B8FE32272D5644DB00B46806 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		B8FE322A2D5649D300B46806 /* FavoriteRacesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRacesListView.swift; sourceTree = "<group>"; };
+		B8FE322C2D564A0D00B46806 /* FavoriteRacesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRacesListViewModel.swift; sourceTree = "<group>"; };
+		B8FE322F2D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRacesListViewModelTests.swift; sourceTree = "<group>"; };
+		B8FE32312D5651D800B46806 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
+		B8FE32332D56521200B46806 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
+		B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailViewModelTests.swift; sourceTree = "<group>"; };
+		B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B85CA4582D55E1D9004A46D3 /* Calendar */ = {
+		B85CA4582D55E1D9004A46D3 /* CalendarTests */ = {
 			isa = PBXGroup;
 			children = (
-				B85CA4592D55E44D004A46D3 /* UserCalendarTests.swift */,
+				B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */,
 				B85CA45B2D55EC15004A46D3 /* EKEventStoreFake.swift */,
+				B85CA4592D55E44D004A46D3 /* UserCalendarTests.swift */,
 			);
-			path = Calendar;
+			path = CalendarTests;
 			sourceTree = "<group>";
 		};
 		B8AE754F2D4C9D7900EEF1D8 = {
@@ -148,8 +169,10 @@
 		B8AE756B2D4C9D7C00EEF1D8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B85CA4582D55E1D9004A46D3 /* Calendar */,
-				B8AE75BA2D4F8A7500EEF1D8 /* SearchTests */,
+				B85CA4582D55E1D9004A46D3 /* CalendarTests */,
+				B8FE322E2D56519400B46806 /* DataPersistenceTests */,
+				B8AE75BA2D4F8A7500EEF1D8 /* RaceAPITests */,
+				B8FE32372D5653FA00B46806 /* ViewModelTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -195,6 +218,7 @@
 		B8AE758C2D4CB02F00EEF1D8 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				B8FE32292D5649AC00B46806 /* Favorites */,
 				B8AE758D2D4CB03600EEF1D8 /* Search */,
 			);
 			path = Tabs;
@@ -220,6 +244,7 @@
 		B8AE759F2D4DFB3E00EEF1D8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B8FE32212D56432D00B46806 /* DataPersistence */,
 				B8AE75A02D4DFB4E00EEF1D8 /* API */,
 				B85CA4542D55C7A9004A46D3 /* UserCalendar.swift */,
 			);
@@ -253,16 +278,14 @@
 			path = Races;
 			sourceTree = "<group>";
 		};
-		B8AE75BA2D4F8A7500EEF1D8 /* SearchTests */ = {
+		B8AE75BA2D4F8A7500EEF1D8 /* RaceAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				B8AE75BF2D4FE9E500EEF1D8 /* MockRecipeAPIService.swift */,
+				B8AE75BF2D4FE9E500EEF1D8 /* MockRaceAPIService.swift */,
 				B8AE75BB2D4F8AC100EEF1D8 /* MockURLProtocol.swift */,
-				B85CA4382D52D437004A46D3 /* RaceListViewModelTests.swift */,
-				B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */,
 				B8AE75BD2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift */,
 			);
-			path = SearchTests;
+			path = RaceAPITests;
 			sourceTree = "<group>";
 		};
 		B8AE75C32D51589B00EEF1D8 /* SearchScreen */ = {
@@ -285,6 +308,45 @@
 				B8AE75D12D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift */,
 			);
 			path = ResultScreen;
+			sourceTree = "<group>";
+		};
+		B8FE32212D56432D00B46806 /* DataPersistence */ = {
+			isa = PBXGroup;
+			children = (
+				B8FE32272D5644DB00B46806 /* CoreDataService.swift */,
+				B8FE32252D5644A000B46806 /* FavoriteRace.swift */,
+				B8FE32222D56437D00B46806 /* FavoriteRaces.xcdatamodeld */,
+			);
+			path = DataPersistence;
+			sourceTree = "<group>";
+		};
+		B8FE32292D5649AC00B46806 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B8FE322A2D5649D300B46806 /* FavoriteRacesListView.swift */,
+				B8FE322C2D564A0D00B46806 /* FavoriteRacesListViewModel.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		B8FE322E2D56519400B46806 /* DataPersistenceTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8FE32332D56521200B46806 /* CoreDataStackTests.swift */,
+				B8FE32312D5651D800B46806 /* CoreDataStackMock.swift */,
+			);
+			path = DataPersistenceTests;
+			sourceTree = "<group>";
+		};
+		B8FE32372D5653FA00B46806 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8FE322F2D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift */,
+				B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */,
+				B85CA4382D52D437004A46D3 /* RaceListViewModelTests.swift */,
+				B8AE75C12D4FEA6D00EEF1D8 /* SearchViewModelTests.swift */,
+			);
+			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,21 +461,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8AE75922D4CB75B00EEF1D8 /* Resources.swift in Sources */,
+				B8FE322D2D564A0D00B46806 /* FavoriteRacesListViewModel.swift in Sources */,
 				B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */,
 				B8AE758B2D4CB01D00EEF1D8 /* SearchView.swift in Sources */,
 				B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */,
 				B8AE75D02D51EA9B00EEF1D8 /* RaceItemDetailView.swift in Sources */,
+				B8FE32242D56437D00B46806 /* FavoriteRaces.xcdatamodeld in Sources */,
 				B8AE759A2D4CC2B600EEF1D8 /* SearchViewModel.swift in Sources */,
 				B8AE75C62D515E1500EEF1D8 /* RaceListView.swift in Sources */,
+				B8FE32262D5644A000B46806 /* FavoriteRace.swift in Sources */,
+				B8FE32392D56558B00B46806 /* CalendarServiceMock.swift in Sources */,
 				B85CA45C2D55EC15004A46D3 /* EKEventStoreFake.swift in Sources */,
 				B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */,
+				B8FE322B2D5649D300B46806 /* FavoriteRacesListView.swift in Sources */,
 				B8AE75A62D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift in Sources */,
 				B8AE755C2D4C9D7900EEF1D8 /* NextRaceApp.swift in Sources */,
+				B8FE32282D5644DB00B46806 /* CoreDataService.swift in Sources */,
 				B8AE75A42D4DFBC700EEF1D8 /* TicketMasterAPI.swift in Sources */,
 				B85CA4512D555A61004A46D3 /* SearchModel.swift in Sources */,
 				B8AE75D22D51EBAC00EEF1D8 /* RaceItemDetailViewModel.swift in Sources */,
 				B85CA4552D55C7AA004A46D3 /* UserCalendar.swift in Sources */,
 				B8AE759C2D4CC2E100EEF1D8 /* CustomNavigationBar.swift in Sources */,
+				B8FE32322D5651D800B46806 /* CoreDataStackMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,9 +493,12 @@
 				B8AE75BE2D4F8B0200EEF1D8 /* TicketMasterAPIServiceTests.swift in Sources */,
 				B85CA4392D52D437004A46D3 /* RaceListViewModelTests.swift in Sources */,
 				B85CA45A2D55E44D004A46D3 /* UserCalendarTests.swift in Sources */,
+				B8FE32302D5651AF00B46806 /* FavoriteRacesListViewModelTests.swift in Sources */,
 				B8AE75BC2D4F8AC100EEF1D8 /* MockURLProtocol.swift in Sources */,
 				B8AE75C22D4FEA6D00EEF1D8 /* SearchViewModelTests.swift in Sources */,
-				B8AE75C02D4FE9E500EEF1D8 /* MockRecipeAPIService.swift in Sources */,
+				B8AE75C02D4FE9E500EEF1D8 /* MockRaceAPIService.swift in Sources */,
+				B8FE32362D56528B00B46806 /* RaceItemDetailViewModelTests.swift in Sources */,
+				B8FE32342D56521200B46806 /* CoreDataStackTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +783,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B8FE32222D56437D00B46806 /* FavoriteRaces.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B8FE32232D56437D00B46806 /* FavoriteRaces.xcdatamodel */,
+			);
+			currentVersion = B8FE32232D56437D00B46806 /* FavoriteRaces.xcdatamodel */;
+			path = FavoriteRaces.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B8AE75502D4C9D7900EEF1D8 /* Project object */;
 }

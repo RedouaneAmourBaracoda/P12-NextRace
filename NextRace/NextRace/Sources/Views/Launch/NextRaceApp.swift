@@ -8,10 +8,9 @@
 import SwiftUI
 
 // A faire :
-// - Unit tests du calendar (voir sur internet ou Mock).
 // - CI : créer un fichier .yml et y coller le code proposer par github action.
 // - GitHub : Security checks -> Dans l'onglet settings du repo, rentrer les régles de sécurité pour la branche main.
-// - CoreData Ajoutter l'optionel sur les champs qui le sont (Price, Date)
+// - CoreData Ajouter l'optionel sur les champs qui le sont (Price, Date)
 
 @main
 struct NextRaceApp: App {
@@ -20,6 +19,9 @@ struct NextRaceApp: App {
             TabView {
                 SearchView()
                     .tabItem { Text(Localizable.searchTabBarItemTitle) }
+
+                FavoriteRacesListView()
+                    .tabItem { Text(Localizable.favoritesTabBarItemTitle) }
             }
             .onAppear { configureAppearance() }
         }
@@ -38,5 +40,9 @@ private extension Localizable {
     static let searchTabBarItemTitle = NSLocalizedString(
         "tabs.search.title",
         comment: ""
+    )
+    static let favoritesTabBarItemTitle = NSLocalizedString(
+         "tabs.favorites.title",
+         comment: ""
     )
 }

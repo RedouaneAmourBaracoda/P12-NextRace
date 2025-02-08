@@ -33,6 +33,22 @@
         }
       }
     },
+    "favorite-races.empty-list.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add or remove a race by tapping the star button on the top right hand corner."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez ou supprimez une course en appuyant sur le bouton étoile dans le coin supérieur droit."
+          }
+        }
+      }
+    },
     "race-detail.back-button.title" : {
       "localizations" : {
         "en" : {
@@ -173,6 +189,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erreur inattendue survenue lors de la recherche."
+          }
+        }
+      }
+    },
+    "races.persistence.errors.undetermined.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some races couldn't be saved in data base. Please try again later."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certaines courses n'ont pas pu être correctement sauvegardées en base de données. Veuillez réessayer plus tard."
           }
         }
       }
@@ -449,18 +481,34 @@
         }
       }
     },
-    "tabs.search.title" : {
+    "tabs.favorites.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SEARCH"
+            "value" : "Favorites"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "RECHERCHE"
+            "value" : "Favoris"
+          }
+        }
+      }
+    },
+    "tabs.search.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche"
           }
         }
       }
