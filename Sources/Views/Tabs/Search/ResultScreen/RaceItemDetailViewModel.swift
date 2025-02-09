@@ -103,7 +103,13 @@ final class RaceItemDetailViewModel: ObservableObject {
                 alertMessage = Localizable.calendarSaveSuccessAlertMessage
                 shouldPresentAlert = true
                 scheduleInProgress = false
-                sendAnalytics(title: "press_agenda", parameters: [race.name: race.date ?? ""])
+                sendAnalytics(
+                    title: "press_agenda",
+                    parameters: [
+                        "Race_Name": race.name,
+                        "Race_Date": race.date ?? "No Date Available"
+                    ]
+                )
             } else {
                 alertTitle = Localizable.calendarUpdateErrorAlertTitle
                 alertMessage = Localizable.calendarSaveErrorAlertMessage
