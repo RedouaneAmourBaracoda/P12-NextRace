@@ -32,7 +32,10 @@ final class SearchViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(raceAPIService: RaceAPIService = TicketMasterAPIService(), analyticsService: AnalyticsService = .shared) {
+    init(
+        raceAPIService: RaceAPIService = TicketMasterAPIService(),
+        analyticsService: AnalyticsService = GoogleFirebaseAnalyticsService()
+    ) {
         self.raceAPIService = raceAPIService
         self.analyticsService = analyticsService
     }

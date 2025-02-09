@@ -10,12 +10,13 @@ import XCTest
 
 @MainActor
 final class RaceItemDetailViewModelTests: XCTestCase {
-
     var raceItemDetailViewModel: RaceItemDetailViewModel!
 
     var coreDataService: CoreDataStackMock!
 
     var calendarService: CalendarServiceMock!
+
+    var analyticsService: AnalyticsServiceMock!
 
     override func setUpWithError() throws {
 
@@ -23,11 +24,43 @@ final class RaceItemDetailViewModelTests: XCTestCase {
 
         calendarService = CalendarServiceMock()
 
+        analyticsService = AnalyticsServiceMock()
+
         raceItemDetailViewModel = .init(
             race: .random(),
             calendarService: calendarService,
-            coreDataService: coreDataService
+            coreDataService: coreDataService,
+            analyticsService: analyticsService
         )
+    }
+
+    func testAnalytics() {
+        // Given.
+
+        let randomTitle: String = .random()
+
+        let randomParameters: [String: String] = .random()
+
+        analyticsService.logEventClosure = { title, parameters in
+            XCTAssertEqual(title, randomTitle)
+            guard let parameters else {
+                XCTFail("Analytics parameters is nil.")
+                return
+            }
+            guard let input = parameters as? [String: String] else {
+                XCTFail("Analytics parameters could not be downcast.")
+                return
+            }
+            XCTAssertEqual(input, randomParameters)
+        }
+
+        // When.
+
+        raceItemDetailViewModel.sendAnalytics(title: randomTitle, parameters: randomParameters)
+
+        // Then.
+
+        XCTAssertEqual(analyticsService.logEventCallsCounter, 1)
     }
 
     func testAddToFavoritesFails() {

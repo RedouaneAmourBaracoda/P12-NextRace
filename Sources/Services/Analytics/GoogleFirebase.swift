@@ -8,9 +8,11 @@
 import FirebaseAnalytics
 import Foundation
 
-final class AnalyticsService {
-    static let shared = AnalyticsService()
+protocol AnalyticsService {
+    func logEvent(title: String, parameters: [String: Any]?)
+}
 
+struct GoogleFirebaseAnalyticsService: AnalyticsService {
     func logEvent(title: String, parameters: [String: Any]?) {
         Analytics.logEvent(title, parameters: parameters)
     }

@@ -48,7 +48,8 @@
 		B8FE323C2D57BAB400B46806 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8FE323B2D57BAB400B46806 /* GoogleService-Info.plist */; };
 		B8FE323F2D57BBC000B46806 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B8FE323E2D57BBC000B46806 /* FirebaseAnalytics */; };
 		B8FE32412D57BBC000B46806 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B8FE32402D57BBC000B46806 /* FirebaseCrashlytics */; };
-		B8FE32442D57BD7100B46806 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32432D57BD7100B46806 /* Analytics.swift */; };
+		B8FE32442D57BD7100B46806 /* GoogleFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32432D57BD7100B46806 /* GoogleFirebase.swift */; };
+		B8FE32492D5863E800B46806 /* AnalyticsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE32482D5863E800B46806 /* AnalyticsServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +104,8 @@
 		B8FE32352D56528B00B46806 /* RaceItemDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceItemDetailViewModelTests.swift; sourceTree = "<group>"; };
 		B8FE32382D56558B00B46806 /* CalendarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceMock.swift; sourceTree = "<group>"; };
 		B8FE323B2D57BAB400B46806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B8FE32432D57BD7100B46806 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		B8FE32432D57BD7100B46806 /* GoogleFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFirebase.swift; sourceTree = "<group>"; };
+		B8FE32482D5863E800B46806 /* AnalyticsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		B8AE756B2D4C9D7C00EEF1D8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B8FE32452D58638C00B46806 /* AnalyticsTests */,
 				B85CA4582D55E1D9004A46D3 /* CalendarTests */,
 				B8FE322E2D56519400B46806 /* DataPersistenceTests */,
 				B8AE75BA2D4F8A7500EEF1D8 /* RaceAPITests */,
@@ -362,9 +365,17 @@
 		B8FE32422D57BD6200B46806 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				B8FE32432D57BD7100B46806 /* Analytics.swift */,
+				B8FE32432D57BD7100B46806 /* GoogleFirebase.swift */,
 			);
 			path = Analytics;
+			sourceTree = "<group>";
+		};
+		B8FE32452D58638C00B46806 /* AnalyticsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8FE32482D5863E800B46806 /* AnalyticsServiceMock.swift */,
+			);
+			path = AnalyticsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,7 +518,7 @@
 			files = (
 				B8AE75922D4CB75B00EEF1D8 /* Resources.swift in Sources */,
 				B8FE322D2D564A0D00B46806 /* FavoriteRacesListViewModel.swift in Sources */,
-				B8FE32442D57BD7100B46806 /* Analytics.swift in Sources */,
+				B8FE32442D57BD7100B46806 /* GoogleFirebase.swift in Sources */,
 				B8AE75A82D4DFC9300EEF1D8 /* TicketMasterResponseAPI+toSearchResult.swift in Sources */,
 				B8AE758B2D4CB01D00EEF1D8 /* SearchView.swift in Sources */,
 				B8AE75C82D515E7900EEF1D8 /* RaceListViewModel.swift in Sources */,
@@ -520,6 +531,7 @@
 				B85CA45C2D55EC15004A46D3 /* EKEventStoreFake.swift in Sources */,
 				B8AE75AA2D4DFCCC00EEF1D8 /* TicketMasterAPIError.swift in Sources */,
 				B8FE322B2D5649D300B46806 /* FavoriteRacesListView.swift in Sources */,
+				B8FE32492D5863E800B46806 /* AnalyticsServiceMock.swift in Sources */,
 				B8AE75A62D4DFC6300EEF1D8 /* TicketMasterResponseAPI.swift in Sources */,
 				B8AE755C2D4C9D7900EEF1D8 /* NextRaceApp.swift in Sources */,
 				B8FE32282D5644DB00B46806 /* CoreDataService.swift in Sources */,

@@ -26,7 +26,10 @@ final class FavoriteRacesListViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(coreDataService: CoreDataService = CoreDataStack.shared, analyticsService: AnalyticsService = .shared) {
+    init(
+        coreDataService: CoreDataService = CoreDataStack.shared,
+        analyticsService: AnalyticsService = GoogleFirebaseAnalyticsService()
+    ) {
         self.coreDataService = coreDataService
         self.analyticsService = analyticsService
     }
@@ -34,6 +37,7 @@ final class FavoriteRacesListViewModel: ObservableObject {
     // MARK: - Methods
 
     func refreshRaces() {
+        sendAnalytics(title: AnalyticsEventScreenView, parameters: ["Favorite_Races_Total": favoriteRaces.count])
         do {
             favoriteRaces = try coreDataService.fetch()
         } catch {
@@ -42,10 +46,7 @@ final class FavoriteRacesListViewModel: ObservableObject {
         }
     }
 
-    func sendScreenEventAnalytics() {
-        analyticsService.logEvent(
-            title: AnalyticsEventScreenView,
-            parameters: ["Favorite_Races_Total": favoriteRaces.count]
-        )
+    func sendAnalytics(title: String, parameters: [String: Any]?) {
+        analyticsService.logEvent(title: title, parameters: parameters)
     }
 }

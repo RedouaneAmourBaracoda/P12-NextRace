@@ -41,7 +41,7 @@ final class RaceItemDetailViewModel: ObservableObject {
         race: Race,
         calendarService: CalendarService = UserCalendar.shared,
         coreDataService: CoreDataService = CoreDataStack.shared,
-        analyticsService: AnalyticsService = .shared
+        analyticsService: AnalyticsService = GoogleFirebaseAnalyticsService()
     ) {
         self.race = race
         self.calendarService = calendarService

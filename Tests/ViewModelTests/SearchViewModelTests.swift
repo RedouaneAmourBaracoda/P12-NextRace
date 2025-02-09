@@ -15,11 +15,44 @@ final class SearchViewModelTests: XCTestCase {
 
     var raceAPIService: MockRaceAPIService!
 
+    var analyticsService: AnalyticsServiceMock!
+
     override func setUpWithError() throws {
 
         raceAPIService = MockRaceAPIService()
 
-        searchViewModel = .init(raceAPIService: raceAPIService)
+        analyticsService = AnalyticsServiceMock()
+
+        searchViewModel = .init(raceAPIService: raceAPIService, analyticsService: analyticsService)
+    }
+
+    func testAnalytics() {
+        // Given.
+
+        let randomTitle: String = .random()
+
+        let randomParameters: [String: String] = .random()
+
+        analyticsService.logEventClosure = { title, parameters in
+            XCTAssertEqual(title, randomTitle)
+            guard let parameters else {
+                XCTFail("Analytics parameters is nil.")
+                return
+            }
+            guard let input = parameters as? [String: String] else {
+                XCTFail("Analytics parameters could not be downcast.")
+                return
+            }
+            XCTAssertEqual(input, randomParameters)
+        }
+
+        // When.
+
+        searchViewModel.sendAnalytics(title: randomTitle, parameters: randomParameters)
+
+        // Then.
+
+        XCTAssertEqual(analyticsService.logEventCallsCounter, 1)
     }
 
     func testResetState() async {
@@ -194,4 +227,15 @@ extension String {
     }
 
     private static let letters = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+}
+
+extension [String: String] {
+    static func random(length: Int = .random(in: 0...10)) -> [String: String] {
+        var output: [String: String] = [:]
+        [Int](repeating: 1, count: length).forEach { _ in
+            output[.random()] = String.random()
+        }
+
+        return output
+    }
 }

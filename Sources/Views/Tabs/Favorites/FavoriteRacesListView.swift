@@ -19,7 +19,6 @@ struct FavoriteRacesListView: View {
                 }
                 .onAppear {
                     viewModel.refreshRaces()
-                    viewModel.sendScreenEventAnalytics()
                 }
         }
     }
