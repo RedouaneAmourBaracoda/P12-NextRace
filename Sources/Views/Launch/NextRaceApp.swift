@@ -8,11 +8,6 @@
 import FirebaseCore
 import SwiftUI
 
-// TODO: -
-// - Fastlane 
-// - Add a sheet view for more info on championship
-// - Add articles news
-
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
