@@ -16,10 +16,12 @@ NextRace is an iOS application for motorsport races. It allows the user to look 
 1. Select a championship and search for the next races in the world.
 2. Display races in date-ascending order with lazy-loading to load more races.
 3. Display a race detail screen with race location, date, price, track, and seatmap
-4. Add a race event to your personal iPhone calendar
+4. Add a race event to your personal iPhone calendar.
 5. Persist a race in database and add it to your favorite tab.
 
-The application localized in english and french.
+The application is localized in english and french.
+
+The application also includes accessibility elements.
 
 ## Main tools
 
