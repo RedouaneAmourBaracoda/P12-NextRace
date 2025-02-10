@@ -62,12 +62,22 @@ struct SearchView: View {
             }
             .pickerStyle(.segmented)
 
-            Image(viewModel.selectedChampionship.imageName, bundle: .main)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 150)
-                .accessibilityLabel(Localizable.carImageAccessibilityLabel)
-                .accessibilityValue(viewModel.selectedChampionship.imageName)
+            VStack {
+                Image(viewModel.selectedChampionship.carImageName, bundle: .main)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 200.0)
+                    .accessibilityLabel(Localizable.carImageAccessibilityLabel)
+                    .accessibilityValue(viewModel.selectedChampionship.carImageName)
+                    .padding()
+                Image(viewModel.selectedChampionship.trackImageName, bundle: .main)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 160.0)
+                    .accessibilityLabel(Localizable.carImageAccessibilityLabel)
+                    .accessibilityValue(viewModel.selectedChampionship.trackImageName)
+            }
+            .padding()
         }
         .padding()
     }

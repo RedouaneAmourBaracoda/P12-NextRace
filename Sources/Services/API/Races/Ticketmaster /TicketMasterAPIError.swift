@@ -25,30 +25,30 @@ enum TicketMasterAPIError: RaceAPIError {
     var errorDescription: String {
         switch self {
         case .invalidURL:
-            return Localizable.invalidURLDescription
+            Localizable.invalidURLDescription
         case .badRequest:
-            return Localizable.badRequestDescription
+            Localizable.badRequestDescription
         case .unauthorized:
-            return Localizable.unauthorizedDescription
+            Localizable.unauthorizedDescription
         case .notFound:
-            return Localizable.notFoundDescription
+            Localizable.notFoundDescription
         case .tooManyRequests:
-            return Localizable.tooManyRequestsDescription
+            Localizable.tooManyRequestsDescription
         case .internalError:
-            return Localizable.internalErrorDescription
+            Localizable.internalErrorDescription
         case .invalidRequest:
-            return Localizable.invalidRequestDescription
+            Localizable.invalidRequestDescription
         }
     }
 
     var userFriendlyDescription: String {
         switch self {
         case .invalidURL, .unauthorized, .internalError, .invalidRequest:
-            return Localizable.invalidRequestUserDescription
+            Localizable.invalidRequestUserDescription
         case .badRequest, .notFound:
-            return Localizable.badRequestUserDescription
+            Localizable.badRequestUserDescription
         case .tooManyRequests:
-            return Localizable.tooManyRequestsUserDescription
+            Localizable.tooManyRequestsUserDescription
         }
     }
 
