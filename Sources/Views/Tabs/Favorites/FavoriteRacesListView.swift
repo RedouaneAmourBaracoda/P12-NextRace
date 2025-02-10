@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoriteRacesListView: View {
-    @ObservedObject private var viewModel = FavoriteRacesListViewModel()
+    @StateObject private var viewModel = FavoriteRacesListViewModel()
 
     var body: some View {
         NavigationStack {

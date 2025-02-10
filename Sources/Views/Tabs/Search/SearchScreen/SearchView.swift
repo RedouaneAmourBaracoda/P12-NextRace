@@ -9,8 +9,7 @@ import Firebase
 import SwiftUI
 
 struct SearchView: View {
-
-    @ObservedObject private var viewModel: SearchViewModel = .init()
+    @StateObject private var viewModel: SearchViewModel = .init()
 
     var body: some View {
         NavigationStack {
@@ -24,20 +23,22 @@ struct SearchView: View {
     }
 
     private func contentView() -> some View {
-        VStack {
-            carSelectionView()
-            Spacer()
-            searchActionView()
-                .navigationDestination(isPresented: $viewModel.showRaces) {
-                    if let searchResult = viewModel.searchResult {
-                        RaceListView(
-                            viewModel: .init(
-                                selectedChampionship: viewModel.selectedChampionship,
-                                searchResult: searchResult
+        ScrollView {
+            VStack {
+                carSelectionView()
+                Spacer()
+                searchActionView()
+                    .navigationDestination(isPresented: $viewModel.showRaces) {
+                        if let searchResult = viewModel.searchResult {
+                            RaceListView(
+                                viewModel: .init(
+                                    selectedChampionship: viewModel.selectedChampionship,
+                                    searchResult: searchResult
+                                )
                             )
-                        )
+                        }
                     }
-                }
+            }
         }
         .onAppear { viewModel.resetState() }
         .padding(.top)
@@ -54,6 +55,7 @@ struct SearchView: View {
                     .accessibilityHint(Localizable.championshipSectionAccessibilityHint)
                 Spacer()
             }
+            .padding()
 
             Picker(Localizable.carSelectionTitle, selection: $viewModel.selectedChampionship) {
                 ForEach(Championship.allCases) {
@@ -61,22 +63,24 @@ struct SearchView: View {
                 }
             }
             .pickerStyle(.segmented)
+            .padding()
 
             VStack {
                 Image(viewModel.selectedChampionship.carImageName, bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 160.0)
+                    .frame(height: 220.0)
                     .accessibilityLabel(Localizable.carImageAccessibilityLabel)
                     .accessibilityValue(viewModel.selectedChampionship.carImageName)
                     .padding()
                 Image(viewModel.selectedChampionship.trackImageName, bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 120.0)
+                    .frame(height: 200.0)
                     .accessibilityLabel(Localizable.carImageAccessibilityLabel)
                     .accessibilityValue(viewModel.selectedChampionship.trackImageName)
             }
+            .padding()
         }
         .padding()
     }
