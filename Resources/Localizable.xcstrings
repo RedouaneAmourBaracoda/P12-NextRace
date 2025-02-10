@@ -65,6 +65,22 @@
         }
       }
     },
+    "race-detail.address.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Address"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adresse"
+          }
+        }
+      }
+    },
     "race-detail.back-button.title" : {
       "localizations" : {
         "en" : {
@@ -77,6 +93,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Retour"
+          }
+        }
+      }
+    },
+    "race-detail.calendar-button.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press this button to add the race to your personal calendar application"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyer sur ce bouton pour ajouter cette course à l'application calendrier"
           }
         }
       }
@@ -161,18 +193,162 @@
         }
       }
     },
-    "race-detail.navigation-title" : {
+    "race-detail.city.accessibility-label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Race"
+            "value" : "City"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Course"
+            "value" : "Ville"
+          }
+        }
+      }
+    },
+    "race-detail.country.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Country"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pays"
+          }
+        }
+      }
+    },
+    "race-detail.date-added.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For your information, this race is already added to your calendar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour votre information, cette course a déjà été ajoutée à votre calendrier"
+          }
+        }
+      }
+    },
+    "race-detail.date-not-added.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For your information, this race has not been added yet to your calendar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour votre information, cette course n'a pas encore été ajoutée à votre calendrier"
+          }
+        }
+      }
+    },
+    "race-detail.date.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of the race event"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date de la course"
+          }
+        }
+      }
+    },
+    "race-detail.favorite-button.activated" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bookmarked"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activé"
+          }
+        }
+      }
+    },
+    "race-detail.favorite-button.deactivated" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbookmarked"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactivé"
+          }
+        }
+      }
+    },
+    "race-detail.missing-date.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date information has not ben provided"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La date de cette course n'est pas communiquée."
+          }
+        }
+      }
+    },
+    "race-detail.navigation-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Race detail"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détail course"
+          }
+        }
+      }
+    },
+    "race-detail.price.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entry Price information"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information sur le prix d'entrée"
           }
         }
       }
@@ -189,6 +365,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Agenda"
+          }
+        }
+      }
+    },
+    "race-detail.title.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Race title"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom de la course"
+          }
+        }
+      }
+    },
+    "race-list.loadmore-button.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press this button to load more races."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyer sur ce bouton pour charger davantage de courses."
           }
         }
       }
@@ -401,6 +609,22 @@
         }
       }
     },
+    "search.button.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This button is disabled when there is already a search in progress."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce bouton est désactivé lorsqu'une recherche est déjà en cours."
+          }
+        }
+      }
+    },
     "search.button.title" : {
       "localizations" : {
         "en" : {
@@ -417,6 +641,22 @@
         }
       }
     },
+    "search.car-image.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image showing the car associated to the selected championship."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image montrant la voiture associée au championnat sélectionné."
+          }
+        }
+      }
+    },
     "search.cars.title" : {
       "localizations" : {
         "en" : {
@@ -429,6 +669,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "CHAMPIONNAT"
+          }
+        }
+      }
+    },
+    "search.championship-selection.accessibility-hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Below are listed three championships. Pick one of them to search for related races."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trois championnats automobiles sont listées ci-dessous. Sélectionnez-en un pour la recherche de courses."
+          }
+        }
+      }
+    },
+    "search.championship-selection.accessibility-label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Championship selection section"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Section championnat"
           }
         }
       }
@@ -486,13 +758,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "RACES"
+            "value" : "List of races"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "COURSES"
+            "value" : "Liste des courses"
           }
         }
       }

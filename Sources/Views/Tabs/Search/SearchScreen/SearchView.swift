@@ -50,6 +50,8 @@ struct SearchView: View {
                 Text(Localizable.carSelectionTitle)
                     .font(.custom(CustomFonts.body, size: 25.0))
                     .foregroundStyle(.white)
+                    .accessibilityLabel(Localizable.championshipSectionAccessibilityLabel)
+                    .accessibilityHint(Localizable.championshipSectionAccessibilityHint)
                 Spacer()
             }
 
@@ -64,6 +66,8 @@ struct SearchView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 150)
+                .accessibilityLabel(Localizable.carImageAccessibilityLabel)
+                .accessibilityValue(viewModel.selectedChampionship.imageName)
         }
         .padding()
     }
@@ -91,6 +95,7 @@ struct SearchView: View {
                     .padding()
             }
             .disabled(viewModel.searchInProgress)
+            .accessibilityHint(Localizable.searchForRacesButtonAccessibilityHint)
         }
     }
 }
@@ -118,6 +123,22 @@ extension Localizable {
 
     static let errorAlertTitle = NSLocalizedString(
         "search.alert.error.title",
+        comment: ""
+    )
+    static let searchForRacesButtonAccessibilityHint = NSLocalizedString(
+        "search.button.accessibility-hint",
+        comment: ""
+    )
+    static let championshipSectionAccessibilityLabel = NSLocalizedString(
+        "search.championship-selection.accessibility-label",
+        comment: ""
+    )
+    static let championshipSectionAccessibilityHint = NSLocalizedString(
+        "search.championship-selection.accessibility-hint",
+        comment: ""
+    )
+    static let carImageAccessibilityLabel = NSLocalizedString(
+        "search.car-image.accessibility-label",
         comment: ""
     )
 }

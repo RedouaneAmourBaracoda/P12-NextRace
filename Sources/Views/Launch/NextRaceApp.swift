@@ -8,6 +8,16 @@
 import FirebaseCore
 import SwiftUI
 
+// TODO: - 
+// - Fastlane 
+// - Added-to-Calendar image bigger
+// - SwiftLint : add a rule for inclusive name
+// - Apply Damien comments
+// - Add track logo for each championship
+// - Add a sheet view for more info on championship
+// - Add articles news
+// - In favorite tab:  add filter -> cheapest to most expensive
+
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {

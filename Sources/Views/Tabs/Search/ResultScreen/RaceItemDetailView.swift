@@ -30,6 +30,10 @@ struct RaceItemDetailView: View {
                         } label: {
                             viewModel.isFavorite ? Image(systemName: "star.fill") : Image(systemName: "star")
                         }
+                        .accessibilityValue(
+                            viewModel.isFavorite ? Localizable.favoriteButtonActivated
+                            : Localizable.favoriteButtonDeactivated
+                        )
                     }
                 }
                 .alert(isPresented: $viewModel.shouldPresentAlert) {
@@ -59,6 +63,7 @@ struct RaceItemDetailView: View {
     private func mainImage() -> some View {
         if let url = viewModel.race.imageURL {
             cachedImage(url: url)
+                .accessibilityHidden(true)
         }
     }
 
@@ -78,13 +83,22 @@ struct RaceItemDetailView: View {
         if let date = viewModel.race.date {
             HStack {
                 resizableImage(systemName: "info.circle")
+                    .accessibilityHidden(true)
                 Text(date.formatted(.dateTime.day().month(.wide).year()))
                     .font(.custom(CustomFonts.body, size: 20))
                     .foregroundStyle(Color.white)
+                    .accessibilityLabel(Localizable.dateInformationAccessibilityLabel)
+                    .accessibilityValue(date.description(with: .current))
+                    .accessibilityHint(
+                        viewModel.isRaceScheduled ?
+                        Localizable.dateAddedToCalendarAccessibilityHint
+                        : Localizable.dateNotAddedToCalendarAccessibilityHint
+                    )
                 Spacer()
                 if viewModel.isRaceScheduled {
                     resizableImage(systemName: "calendar.badge.checkmark")
                         .foregroundStyle(.green)
+                        .accessibilityHidden(true)
                 } else {
                     Button {
                         Task {
@@ -95,6 +109,7 @@ struct RaceItemDetailView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(viewModel.scheduleInProgress)
+                    .accessibilityHint(Localizable.calendarButtonAccessibilityHint)
                 }
             }
         }
@@ -105,6 +120,7 @@ struct RaceItemDetailView: View {
         if let price = viewModel.race.price {
             HStack {
                 resizableImage(systemName: "dollarsign.circle")
+                    .accessibilityHidden(true)
                 if Int(price.min) == Int(price.max) {
                     Text("\(Int(price.max)) \(price.currency)")
                         .font(.custom(CustomFonts.body, size: 20))
@@ -115,15 +131,21 @@ struct RaceItemDetailView: View {
                         .foregroundStyle(Color.white)
                 }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Localizable.priceInformationAccessibilityLabel)
+            .accessibilityValue(String(price.min) + String(price.currency))
         }
     }
 
     private func raceway() -> some View {
         HStack {
             resizableImage(systemName: "road.lanes.curved.left")
+                .accessibilityHidden(true)
             Text(viewModel.race.name)
                 .font(.custom(CustomFonts.body, size: 20))
                 .foregroundStyle(Color.white)
+                .accessibilityLabel(Localizable.raceDetailTitleAccessibilityLabel)
+                .accessibilityValue(viewModel.race.name)
         }
     }
 
@@ -131,24 +153,37 @@ struct RaceItemDetailView: View {
     private func seatmap() -> some View {
         if let url = viewModel.race.seatmapURL {
             cachedImage(url: url, height: 250)
+                .accessibilityHidden(true)
         }
     }
 
     @ViewBuilder
     private func location() -> some View {
-        if let venue = viewModel.race.venue, let country = venue.country, let city = venue.city {
+        if
+            let venue = viewModel.race.venue,
+            let country = venue.country,
+            let city = venue.city,
+            let address = venue.address,
+            let postalCode = venue.postalCode {
             HStack {
                 resizableImage(systemName: "location")
+                    .accessibilityHidden(true)
                 VStack(alignment: .leading) {
                     Text(country)
                         .font(.custom(CustomFonts.body, size: 20))
                         .foregroundStyle(Color.white)
+                        .accessibilityLabel(Localizable.countryInformationAccessibilityLabel)
+                        .accessibilityValue(country)
                     Text(city)
                         .font(.custom(CustomFonts.body, size: 20))
                         .foregroundStyle(Color.white)
-                    Text("\(venue.address ?? "") \(venue.postalCode ?? "") \(venue.state ?? "")")
+                        .accessibilityLabel(Localizable.cityInformationAccessibilityLabel)
+                        .accessibilityValue(city)
+                    Text("\(address) \(postalCode) \(venue.state ?? "")")
                         .font(.custom(CustomFonts.body, size: 15))
                         .foregroundStyle(Color.white)
+                        .accessibilityLabel(Localizable.addressInformationAccessibilityLabel)
+                        .accessibilityValue(address + postalCode + (venue.state ?? ""))
                 }
             }
         }
@@ -185,6 +220,47 @@ extension Localizable {
     )
     static let scheduleButtonTitle = NSLocalizedString(
         "race-detail.schedule-button.title",
+        comment: ""
+    )
+    static let favoriteButtonActivated = NSLocalizedString(
+        "race-detail.favorite-button.activated",
+        comment: ""
+    )
+
+    static let favoriteButtonDeactivated = NSLocalizedString(
+        "race-detail.favorite-button.deactivated",
+        comment: ""
+    )
+    static let dateInformationAccessibilityLabel = NSLocalizedString(
+        "race-detail.date.accessibility-label",
+        comment: ""
+    )
+    static let dateAddedToCalendarAccessibilityHint = NSLocalizedString(
+        "race-detail.date-added.accessibility-hint",
+        comment: ""
+    )
+    static let dateNotAddedToCalendarAccessibilityHint = NSLocalizedString(
+        "race-detail.date-not-added.accessibility-hint",
+        comment: ""
+    )
+    static let calendarButtonAccessibilityHint = NSLocalizedString(
+        "race-detail.calendar-button.accessibility-hint",
+        comment: ""
+    )
+    static let priceInformationAccessibilityLabel = NSLocalizedString(
+        "race-detail.price.accessibility-label",
+        comment: ""
+    )
+    static let countryInformationAccessibilityLabel = NSLocalizedString(
+        "race-detail.country.accessibility-label",
+        comment: ""
+    )
+    static let cityInformationAccessibilityLabel = NSLocalizedString(
+        "race-detail.city.accessibility-label",
+        comment: ""
+    )
+    static let addressInformationAccessibilityLabel = NSLocalizedString(
+        "race-detail.address.accessibility-label",
         comment: ""
     )
 }
