@@ -13,33 +13,37 @@ struct SearchView: View {
 
     var body: some View {
         NavigationStack {
-            contentView()
-                .customNavigationBar(navigationTitle: Localizable.navigationTitle)
-                .alert(isPresented: $viewModel.shouldPresentAlert) {
-                    Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
+            ViewThatFits {
+                contentView()
+                ScrollView {
+                    contentView()
                 }
-                .background { CustomColors.backgroundColor.ignoresSafeArea() }
+            }
+            .customNavigationBar(navigationTitle: Localizable.navigationTitle)
+            .alert(isPresented: $viewModel.shouldPresentAlert) {
+                Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
+            }
+            .background { CustomColors.backgroundColor.ignoresSafeArea() }
         }
     }
 
     private func contentView() -> some View {
-        ScrollView {
-            VStack {
-                carSelectionView()
-                Spacer()
-                searchActionView()
-                    .navigationDestination(isPresented: $viewModel.showRaces) {
-                        if let searchResult = viewModel.searchResult {
-                            RaceListView(
-                                viewModel: .init(
-                                    selectedChampionship: viewModel.selectedChampionship,
-                                    searchResult: searchResult
-                                )
+        VStack {
+            carSelectionView()
+            Spacer()
+            searchActionView()
+                .navigationDestination(isPresented: $viewModel.showRaces) {
+                    if let searchResult = viewModel.searchResult {
+                        RaceListView(
+                            viewModel: .init(
+                                selectedChampionship: viewModel.selectedChampionship,
+                                searchResult: searchResult
                             )
-                        }
+                        )
                     }
-            }
+                }
         }
+
         .onAppear { viewModel.resetState() }
         .padding(.top)
         .padding(.bottom, 0.5)
@@ -55,7 +59,6 @@ struct SearchView: View {
                     .accessibilityHint(Localizable.championshipSectionAccessibilityHint)
                 Spacer()
             }
-            .padding()
 
             Picker(Localizable.carSelectionTitle, selection: $viewModel.selectedChampionship) {
                 ForEach(Championship.allCases) {
@@ -63,24 +66,24 @@ struct SearchView: View {
                 }
             }
             .pickerStyle(.segmented)
-            .padding()
 
             VStack {
+                Spacer()
                 Image(viewModel.selectedChampionship.carImageName, bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 220.0)
+                    .frame(height: 180.0)
                     .accessibilityLabel(Localizable.carImageAccessibilityLabel)
                     .accessibilityValue(viewModel.selectedChampionship.carImageName)
-                    .padding()
+                Spacer()
                 Image(viewModel.selectedChampionship.trackImageName, bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 200.0)
+                    .frame(height: 150.0)
                     .accessibilityLabel(Localizable.carImageAccessibilityLabel)
                     .accessibilityValue(viewModel.selectedChampionship.trackImageName)
+                Spacer()
             }
-            .padding()
         }
         .padding()
     }
