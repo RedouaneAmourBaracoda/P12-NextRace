@@ -86,7 +86,7 @@ enum Championship: String, CaseIterable, Identifiable {
         return self
     }
 
-    var imageName: String {
+    var carImageName: String {
         switch self {
         case .formula:
             "Formula-image"
@@ -94,6 +94,17 @@ enum Championship: String, CaseIterable, Identifiable {
             "Monster-image"
         case .nascar:
             "Nascar-image"
+        }
+    }
+
+    var trackImageName: String {
+        switch self {
+        case .formula:
+            "Formula-track"
+        case .monster:
+            "Launch-screen-logo"
+        case .nascar:
+            "Nascar-track"
         }
     }
 }

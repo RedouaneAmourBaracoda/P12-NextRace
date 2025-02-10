@@ -21,6 +21,7 @@ struct RaceListView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text(Localizable.backButtonTitle).opacity(0)
+                            .accessibilityLabel(Localizable.backButtonTitle)
                     }
                 }
                 .alert(isPresented: $viewModel.shouldPresentAlert) {
@@ -40,9 +41,14 @@ struct RaceListView: View {
                         } label: {
                             RaceItemView(item: race)
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(Localizable.raceDetailTitleAccessibilityLabel)
+                        .accessibilityValue(race.name)
+                        .accessibilityHint(race.date?.description(with: .current) ?? Localizable.noDateAvailable)
                     }
                     if viewModel.showLoadMore {
                         loadMoreActionView()
+                            .accessibilityHint(Localizable.loadMoreAccessibiltyHint)
                     }
                 }
             }
@@ -161,6 +167,18 @@ extension Localizable {
     )
     static let loadMoreButtonTitle = NSLocalizedString(
         "search.result-list.loadmore-button.title",
+        comment: ""
+    )
+    static let raceDetailTitleAccessibilityLabel = NSLocalizedString(
+        "race-detail.title.accessibility-label",
+        comment: ""
+    )
+    static let noDateAvailable = NSLocalizedString(
+        "race-detail.missing-date.accessibility-hint",
+        comment: ""
+    )
+    static let loadMoreAccessibiltyHint = NSLocalizedString(
+        "race-list.loadmore-button.accessibility-hint",
         comment: ""
     )
 }

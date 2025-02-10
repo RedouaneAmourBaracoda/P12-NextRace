@@ -7,8 +7,6 @@
 
 import Foundation
 
-// swiftlint:disable identifier_name
-// swiftlint:disable inclusive_language
 struct TicketMasterAPIResponse: Codable, Equatable {
     let _embedded: EmbeddedEvents
     let page: Page
@@ -88,5 +86,3 @@ struct Page: Codable, Equatable {
     let totalPages: Int
     let number: Int
 }
-// swiftlint:enable identifier_name
-// swiftlint:enable inclusive_language

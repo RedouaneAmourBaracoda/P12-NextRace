@@ -11,7 +11,6 @@ protocol RaceAPIService {
     func fetchRaces(for championship: String, at page: Int) async throws -> SearchResult
 }
 
-// swiftlint:disable inclusive_language
 struct TicketMasterAPIService: RaceAPIService {
 
     // MARK: - API infos.
@@ -69,4 +68,3 @@ struct TicketMasterAPIService: RaceAPIService {
         }
     }
 }
-// swiftlint:enable inclusive_language

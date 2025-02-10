@@ -41,7 +41,6 @@ extension TicketMasterAPIResponse {
     }
 }
 
-// swiftlint:disable inclusive_language
 private extension DateFormatter {
     static let ticketMasterAPIDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -49,4 +48,3 @@ private extension DateFormatter {
         return dateFormatter
     }()
 }
-// swiftlint:enable inclusive_language
