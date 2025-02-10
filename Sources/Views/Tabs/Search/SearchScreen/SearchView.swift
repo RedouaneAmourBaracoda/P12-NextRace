@@ -50,6 +50,8 @@ struct SearchView: View {
                 Text(Localizable.carSelectionTitle)
                     .font(.custom(CustomFonts.body, size: 25.0))
                     .foregroundStyle(.white)
+                    .accessibilityLabel(Localizable.championshipSectionAccessibilityLabel)
+                    .accessibilityHint(Localizable.championshipSectionAccessibilityHint)
                 Spacer()
             }
 
@@ -60,10 +62,21 @@ struct SearchView: View {
             }
             .pickerStyle(.segmented)
 
-            Image(viewModel.selectedChampionship.imageName, bundle: .main)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 150)
+            VStack {
+                Image(viewModel.selectedChampionship.carImageName, bundle: .main)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 160.0)
+                    .accessibilityLabel(Localizable.carImageAccessibilityLabel)
+                    .accessibilityValue(viewModel.selectedChampionship.carImageName)
+                    .padding()
+                Image(viewModel.selectedChampionship.trackImageName, bundle: .main)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 120.0)
+                    .accessibilityLabel(Localizable.carImageAccessibilityLabel)
+                    .accessibilityValue(viewModel.selectedChampionship.trackImageName)
+            }
         }
         .padding()
     }
@@ -82,7 +95,7 @@ struct SearchView: View {
                 }
             } label: {
                 Text(Localizable.searchButtonTitle)
-                    .font(.custom(CustomFonts.body, size: 20.0))
+                    .font(.custom(CustomFonts.body, size: 16.0))
                     .foregroundStyle(CustomColors.backgroundColor)
                     .padding(.vertical)
                     .padding(.horizontal, 80)
@@ -91,6 +104,7 @@ struct SearchView: View {
                     .padding()
             }
             .disabled(viewModel.searchInProgress)
+            .accessibilityHint(Localizable.searchForRacesButtonAccessibilityHint)
         }
     }
 }
@@ -118,6 +132,22 @@ extension Localizable {
 
     static let errorAlertTitle = NSLocalizedString(
         "search.alert.error.title",
+        comment: ""
+    )
+    static let searchForRacesButtonAccessibilityHint = NSLocalizedString(
+        "search.button.accessibility-hint",
+        comment: ""
+    )
+    static let championshipSectionAccessibilityLabel = NSLocalizedString(
+        "search.championship-selection.accessibility-label",
+        comment: ""
+    )
+    static let championshipSectionAccessibilityHint = NSLocalizedString(
+        "search.championship-selection.accessibility-hint",
+        comment: ""
+    )
+    static let carImageAccessibilityLabel = NSLocalizedString(
+        "search.car-image.accessibility-label",
         comment: ""
     )
 }

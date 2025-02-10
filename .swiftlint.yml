@@ -1,0 +1,4 @@
+disabled_rules:
+    - inclusive_language
+    - discouraged_direct_init
+    - identifier_name

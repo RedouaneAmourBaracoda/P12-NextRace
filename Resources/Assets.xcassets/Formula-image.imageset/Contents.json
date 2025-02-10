@@ -1,8 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "vecteezy_white-sport-car-on-transparent-background-3d-rendering_25303901.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "vecteezy_white-sport-car-on-transparent-background-3d-rendering_25303901@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

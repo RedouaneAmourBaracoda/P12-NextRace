@@ -58,7 +58,6 @@ final class FavoriteRacesListViewModelTests: XCTestCase {
     func testRefreshFavoriteStateFails() {
         // Given.
 
-        // swiftlint:disable:next discouraged_direct_init
         let error = NSError()
 
         coreDataService.error = error

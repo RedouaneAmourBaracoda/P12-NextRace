@@ -78,7 +78,6 @@ final class SearchViewModelTests: XCTestCase {
         XCTAssertFalse(searchViewModel.searchInProgress)
     }
 
-    // swiftlint:disable inclusive_language
     func testGetRacesWhenTicketMasterAPIReturnsError() async {
 
         // Given.
@@ -105,7 +104,6 @@ final class SearchViewModelTests: XCTestCase {
 
         XCTAssertFalse(searchViewModel.searchInProgress)
     }
-    // swiftlint:enable inclusive_language
 
     func testGetRacesWhenAPIReturnsOtherError() async {
 
@@ -113,7 +111,6 @@ final class SearchViewModelTests: XCTestCase {
 
         XCTAssertFalse(searchViewModel.searchInProgress)
 
-        // swiftlint:disable:next discouraged_direct_init
         let error = NSError()
 
         raceAPIService.error = error
