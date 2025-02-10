@@ -8,7 +8,6 @@
 import XCTest
 @testable import NextRace
 
-// swiftlint:disable inclusive_language
 final class TicketMasterAPIServiceTests: XCTestCase {
 
     var raceAPIService: TicketMasterAPIService!
@@ -222,4 +221,3 @@ final class TicketMasterAPIServiceTests: XCTestCase {
         }
     }
 }
-// swiftlint:enable inclusive_language

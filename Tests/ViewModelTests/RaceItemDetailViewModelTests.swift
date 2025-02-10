@@ -66,7 +66,6 @@ final class RaceItemDetailViewModelTests: XCTestCase {
     func testAddToFavoritesFails() {
         // Given.
 
-        // swiftlint:disable:next discouraged_direct_init
         let error = NSError()
 
         coreDataService.error = error
@@ -119,7 +118,6 @@ final class RaceItemDetailViewModelTests: XCTestCase {
     func testRefreshFavoriteStateFails() {
         // Given.
 
-        // swiftlint:disable:next discouraged_direct_init
         let error = NSError()
 
         coreDataService.error = error
@@ -174,7 +172,6 @@ final class RaceItemDetailViewModelTests: XCTestCase {
     func testRemoveFromFavoritesFails() {
         // Given.
 
-        // swiftlint:disable:next discouraged_direct_init
         let error = NSError()
 
         coreDataService.error = error

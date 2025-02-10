@@ -8,10 +8,8 @@
 import FirebaseCore
 import SwiftUI
 
-// TODO: - 
+// TODO: -
 // - Fastlane 
-// - Added-to-Calendar image bigger
-// - SwiftLint : add a rule for inclusive name
 // - Apply Damien comments
 // - Add track logo for each championship
 // - Add a sheet view for more info on championship

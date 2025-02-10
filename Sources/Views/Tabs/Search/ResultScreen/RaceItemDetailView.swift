@@ -96,7 +96,7 @@ struct RaceItemDetailView: View {
                     )
                 Spacer()
                 if viewModel.isRaceScheduled {
-                    resizableImage(systemName: "calendar.badge.checkmark")
+                    resizableImage(systemName: "calendar.badge.checkmark", width: 30.0)
                         .foregroundStyle(.green)
                         .accessibilityHidden(true)
                 } else {
@@ -189,11 +189,11 @@ struct RaceItemDetailView: View {
         }
     }
 
-    private func resizableImage(systemName: String) -> some View {
+    private func resizableImage(systemName: String, width: CGFloat = 20.0) -> some View {
         Image(systemName: systemName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 20.0)
+            .frame(width: width)
             .padding(.trailing)
     }
 
