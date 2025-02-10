@@ -9,7 +9,6 @@ import Kingfisher
 import SwiftUI
 
 struct RaceItemDetailView: View {
-
     @ObservedObject private var viewModel: RaceItemDetailViewModel
 
     init(viewModel: RaceItemDetailViewModel) {
@@ -208,7 +207,7 @@ struct RaceItemDetailView: View {
             .cacheMemoryOnly()
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(maxHeight: height)
+            .frame(maxWidth: .infinity)
             .clipShape(.rect(cornerRadius: 1.0))
     }
 }

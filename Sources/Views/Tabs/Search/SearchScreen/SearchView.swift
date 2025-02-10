@@ -9,17 +9,21 @@ import Firebase
 import SwiftUI
 
 struct SearchView: View {
-
-    @ObservedObject private var viewModel: SearchViewModel = .init()
+    @StateObject private var viewModel: SearchViewModel = .init()
 
     var body: some View {
         NavigationStack {
-            contentView()
-                .customNavigationBar(navigationTitle: Localizable.navigationTitle)
-                .alert(isPresented: $viewModel.shouldPresentAlert) {
-                    Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
+            ViewThatFits {
+                contentView()
+                ScrollView {
+                    contentView()
                 }
-                .background { CustomColors.backgroundColor.ignoresSafeArea() }
+            }
+            .customNavigationBar(navigationTitle: Localizable.navigationTitle)
+            .alert(isPresented: $viewModel.shouldPresentAlert) {
+                Alert(title: Text(Localizable.errorAlertTitle), message: Text(viewModel.errorMessage))
+            }
+            .background { CustomColors.backgroundColor.ignoresSafeArea() }
         }
     }
 
@@ -39,6 +43,7 @@ struct SearchView: View {
                     }
                 }
         }
+
         .onAppear { viewModel.resetState() }
         .padding(.top)
         .padding(.bottom, 0.5)
@@ -63,19 +68,21 @@ struct SearchView: View {
             .pickerStyle(.segmented)
 
             VStack {
+                Spacer()
                 Image(viewModel.selectedChampionship.carImageName, bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 160.0)
+                    .frame(height: 180.0)
                     .accessibilityLabel(Localizable.carImageAccessibilityLabel)
                     .accessibilityValue(viewModel.selectedChampionship.carImageName)
-                    .padding()
+                Spacer()
                 Image(viewModel.selectedChampionship.trackImageName, bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 120.0)
+                    .frame(height: 150.0)
                     .accessibilityLabel(Localizable.carImageAccessibilityLabel)
                     .accessibilityValue(viewModel.selectedChampionship.trackImageName)
+                Spacer()
             }
         }
         .padding()
